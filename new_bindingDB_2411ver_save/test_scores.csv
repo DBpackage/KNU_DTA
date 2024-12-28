@@ -1,0 +1,3 @@
+Task,Mean mse,Standard deviation mse,Fold 0 mse,Mean rmse,Standard deviation rmse,Fold 0 rmse,Mean r2,Standard deviation r2,Fold 0 r2,Mean ci,Standard deviation ci,Fold 0 ci
+pka,0.4554982871072669,0.0,0.4554982871072669,0.6749061320711696,0.0,0.6749061320711696,0.7914482465859785,0.0,0.7914482465859785,0.8599637175346333,0.0,0.8599637175346333
+Cindex,0.8599637175346333,0.0

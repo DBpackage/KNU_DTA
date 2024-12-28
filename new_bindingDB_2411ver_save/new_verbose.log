@@ -1,0 +1,2896 @@
+Command line
+python train.py --data_path ./toy_dataset/BindingDB_from_Ki_labeled_dataset_2411ver_remove_less_than_5.csv --metric mse --extra_metrics rmse r2 ci --dataset_type regression --save_dir ./new_bindingDB_2411ver_save --target_columns pka --epochs 120 --ensemble_size 3 --num_folds 1 --batch_size 50 --transformer_d_model 64 --transformer_d_ff 512 --transformer_nlayers 2 --sequence_length 500 --sps_length 70 --smiles_length 50 --sps_cnn --D_MPNN --ECFP --earlystop 50 --seed 42 --tau 0.0 5.0 --alpha 0.5 --beta 5.0
+Args
+{'D_MPNN': True,
+ 'ECFP': True,
+ 'activation': 'ReLU',
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'alpha': 0.5,
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'batch_size': 50,
+ 'beta': 5.0,
+ 'bias': False,
+ 'bond_feature_scaling': True,
+ 'bond_features_path': None,
+ 'bond_features_size': 0,
+ 'cache_cutoff': 10000,
+ 'checkpoint_dir': None,
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': None,
+ 'class_balance': False,
+ 'config_path': None,
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': True,
+ 'data_path': './toy_dataset/BindingDB_from_Ki_labeled_dataset_2411ver_remove_less_than_5.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'regression',
+ 'depth': 3,
+ 'device': device(type='cuda'),
+ 'drop_last': True,
+ 'dropout': 0.1,
+ 'earlystop': 50,
+ 'earlystop_metric': 'auc',
+ 'empty_cache': False,
+ 'ensemble_size': 3,
+ 'epochs': 120,
+ 'explicit_h': False,
+ 'extra_metrics': ['rmse', 'r2', 'ci'],
+ 'features_generator': None,
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': True,
+ 'features_size': None,
+ 'ffn_hidden_size': 300,
+ 'ffn_num_layers': 2,
+ 'final_lr': 0.0001,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': None,
+ 'grad_clip': None,
+ 'hidden_size': 300,
+ 'ignore_columns': None,
+ 'init_lr': 0.0001,
+ 'kernel_size': 7,
+ 'lamp_lr': 0.0025,
+ 'log_frequency': 10,
+ 'max_data_size': None,
+ 'max_lr': 0.001,
+ 'metric': 'mse',
+ 'metrics': ['mse', 'rmse', 'r2', 'ci'],
+ 'minimize_score': True,
+ 'mpn_shared': False,
+ 'multiclass_num_classes': 3,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_features_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': False,
+ 'num_folds': 1,
+ 'num_lrs': 1,
+ 'num_tasks': 1,
+ 'num_workers': 8,
+ 'number_of_molecules': 1,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'prot_cnn': False,
+ 'pytorch_seed': 0,
+ 'quiet': False,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'resume_experiment': False,
+ 'save_dir': './new_bindingDB_2411ver_save',
+ 'save_preds': False,
+ 'save_smiles_splits': False,
+ 'seed': 42,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_features_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_features_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': None,
+ 'sequence_length': 500,
+ 'show_individual_scores': False,
+ 'smiles_columns': ['smiles'],
+ 'smiles_length': 50,
+ 'split_sizes': (0.7, 0.1, 0.2),
+ 'split_type': 'random',
+ 'sps_1d_out': 64,
+ 'sps_1dcnn_numlayers': 3,
+ 'sps_cnn': True,
+ 'sps_hidden_size': 128,
+ 'sps_length': 70,
+ 'target_columns': ['pka'],
+ 'target_weights': None,
+ 'task_names': ['pka'],
+ 'tau': (0.0, 5.0),
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'transformer_d_ff': 512,
+ 'transformer_d_model': 64,
+ 'transformer_nheads': 4,
+ 'transformer_nlayers': 2,
+ 'undirected': False,
+ 'use_input_features': False,
+ 'val_fold_index': None,
+ 'vocab_path': '/data/knu_hr/project/final/vocab/',
+ 'warmup_epochs': 2.0}
+Loading data
+Command line
+python train.py --data_path ./toy_dataset/BindingDB_from_Ki_labeled_dataset_2411ver_remove_less_than_5.csv --metric mse --extra_metrics rmse r2 ci --dataset_type regression --save_dir ./new_bindingDB_2411ver_save --target_columns pka --epochs 120 --ensemble_size 3 --num_folds 1 --batch_size 50 --transformer_d_model 64 --transformer_d_ff 512 --transformer_nlayers 2 --sequence_length 500 --sps_length 70 --smiles_length 50 --sps_cnn --D_MPNN --ECFP --earlystop 50 --seed 42 --tau 0.0 5.0 --alpha 0.5 --beta 5.0
+Args
+{'D_MPNN': True,
+ 'ECFP': True,
+ 'activation': 'ReLU',
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'alpha': 0.5,
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'batch_size': 50,
+ 'beta': 5.0,
+ 'bias': False,
+ 'bond_feature_scaling': True,
+ 'bond_features_path': None,
+ 'bond_features_size': 0,
+ 'cache_cutoff': 10000,
+ 'checkpoint_dir': None,
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': None,
+ 'class_balance': False,
+ 'config_path': None,
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': True,
+ 'data_path': './toy_dataset/BindingDB_from_Ki_labeled_dataset_2411ver_remove_less_than_5.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'regression',
+ 'depth': 3,
+ 'device': device(type='cuda'),
+ 'drop_last': True,
+ 'dropout': 0.1,
+ 'earlystop': 50,
+ 'earlystop_metric': 'auc',
+ 'empty_cache': False,
+ 'ensemble_size': 3,
+ 'epochs': 120,
+ 'explicit_h': False,
+ 'extra_metrics': ['rmse', 'r2', 'ci'],
+ 'features_generator': None,
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': True,
+ 'features_size': None,
+ 'ffn_hidden_size': 300,
+ 'ffn_num_layers': 2,
+ 'final_lr': 0.0001,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': None,
+ 'grad_clip': None,
+ 'hidden_size': 300,
+ 'ignore_columns': None,
+ 'init_lr': 0.0001,
+ 'kernel_size': 7,
+ 'lamp_lr': 0.0025,
+ 'log_frequency': 10,
+ 'max_data_size': None,
+ 'max_lr': 0.001,
+ 'metric': 'mse',
+ 'metrics': ['mse', 'rmse', 'r2', 'ci'],
+ 'minimize_score': True,
+ 'mpn_shared': False,
+ 'multiclass_num_classes': 3,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_features_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': False,
+ 'num_folds': 1,
+ 'num_lrs': 1,
+ 'num_tasks': 1,
+ 'num_workers': 8,
+ 'number_of_molecules': 1,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'prot_cnn': False,
+ 'pytorch_seed': 0,
+ 'quiet': False,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'resume_experiment': False,
+ 'save_dir': './new_bindingDB_2411ver_save',
+ 'save_preds': False,
+ 'save_smiles_splits': False,
+ 'seed': 42,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_features_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_features_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': None,
+ 'sequence_length': 500,
+ 'show_individual_scores': False,
+ 'smiles_columns': ['smiles'],
+ 'smiles_length': 50,
+ 'split_sizes': (0.7, 0.1, 0.2),
+ 'split_type': 'random',
+ 'sps_1d_out': 64,
+ 'sps_1dcnn_numlayers': 3,
+ 'sps_cnn': True,
+ 'sps_hidden_size': 128,
+ 'sps_length': 70,
+ 'target_columns': ['pka'],
+ 'target_weights': None,
+ 'task_names': ['pka'],
+ 'tau': (0.0, 5.0),
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'transformer_d_ff': 512,
+ 'transformer_d_model': 64,
+ 'transformer_nheads': 4,
+ 'transformer_nlayers': 2,
+ 'undirected': False,
+ 'use_input_features': False,
+ 'val_fold_index': None,
+ 'vocab_path': '/data/knu_hr/project/final/vocab/',
+ 'warmup_epochs': 2.0}
+Loading data
+Warning: 288 SMILES are invalid.
+Number of tasks = 1
+Fold 0
+Current execution time: 2024-11-20 19:34:01
+Splitting data with seed 42
+Total size = 386,259 | train size = 270,381 | val size = 38,626 | test size = 77,252
+Fitting scaler
+Building model 0
+InteractionModel(
+  (smiles_transformer): Drug_Encoder(
+    (pe): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (drug_embedding): Embedding(2588, 64)
+    (lin): Linear(in_features=64, out_features=300, bias=True)
+    (LN): LayerNorm((300,), eps=1e-05, elementwise_affine=True)
+    (dropout): Dropout(p=0.1, inplace=False)
+    (transformer_encoderlayer): TransformerEncoderLayer(
+      (self_attn): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+      )
+      (linear1): Linear(in_features=64, out_features=512, bias=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+      (linear2): Linear(in_features=512, out_features=64, bias=True)
+      (norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (dropout1): Dropout(p=0.1, inplace=False)
+      (dropout2): Dropout(p=0.1, inplace=False)
+    )
+    (transformer_encoder): TransformerEncoder(
+      (layers): ModuleList(
+        (0-1): 2 x TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=512, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+  )
+  (prot_transformer): Protein_Encoder(
+    (pe): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (prot_embedding): Embedding(4116, 64)
+    (lin): Linear(in_features=64, out_features=300, bias=True)
+    (LN): LayerNorm((300,), eps=1e-05, elementwise_affine=True)
+    (dropout): Dropout(p=0.1, inplace=False)
+    (transformer_encoderlayer): TransformerEncoderLayer(
+      (self_attn): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+      )
+      (linear1): Linear(in_features=64, out_features=512, bias=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+      (linear2): Linear(in_features=512, out_features=64, bias=True)
+      (norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (dropout1): Dropout(p=0.1, inplace=False)
+      (dropout2): Dropout(p=0.1, inplace=False)
+    )
+    (transformer_encoder): TransformerEncoder(
+      (layers): ModuleList(
+        (0-1): 2 x TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=512, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+  )
+  (relu): ReLU()
+  (hidden_norm): LayerNorm((300,), eps=1e-05, elementwise_affine=True)
+  (do): Dropout(p=0.1, inplace=False)
+  (fc_mg): Linear(in_features=2048, out_features=300, bias=True)
+  (encoder): MPN(
+    (encoder): ModuleList(
+      (0): MPNEncoder(
+        (dropout_layer): Dropout(p=0.1, inplace=False)
+        (act_func): ReLU()
+        (W_i): Linear(in_features=147, out_features=300, bias=False)
+        (W_h): Linear(in_features=300, out_features=300, bias=False)
+        (W_o): Linear(in_features=433, out_features=300, bias=True)
+      )
+    )
+  )
+  (sps_embedding): Embedding(74, 128)
+  (conv_in): Conv1d(70, 64, kernel_size=(1,), stride=(1,))
+  (convs): ModuleList(
+    (0-2): 3 x Conv1d(128, 256, kernel_size=(7,), stride=(1,), padding=(3,))
+  )
+  (cnn_fc): Linear(in_features=8192, out_features=300, bias=True)
+  (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+  (Final_FC): ModuleList(
+    (0): Linear(in_features=600, out_features=128, bias=True)
+    (1): Linear(in_features=128, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=32, bias=True)
+    (3): Linear(in_features=32, out_features=1, bias=True)
+  )
+)
+Number of parameters = 5,095,441
+Moving model to cuda
+Epoch 0
+Model 0 Validation mse = 1.555840
+Model 0 Validation rmse = 1.247333
+Model 0 Validation r2 = 0.280636
+Model 0 Validation ci = 0.746360
+Epoch 1
+Model 0 Validation mse = 1.625412
+Model 0 Validation rmse = 1.274917
+Model 0 Validation r2 = 0.248469
+Model 0 Validation ci = 0.775794
+Epoch 2
+Model 0 Validation mse = 1.317029
+Model 0 Validation rmse = 1.147619
+Model 0 Validation r2 = 0.391054
+Model 0 Validation ci = 0.791100
+Epoch 3
+Model 0 Validation mse = 1.119796
+Model 0 Validation rmse = 1.058204
+Model 0 Validation r2 = 0.482247
+Model 0 Validation ci = 0.801965
+Epoch 4
+Model 0 Validation mse = 1.205553
+Model 0 Validation rmse = 1.097977
+Model 0 Validation r2 = 0.442596
+Model 0 Validation ci = 0.808050
+Epoch 5
+Model 0 Validation mse = 0.950791
+Model 0 Validation rmse = 0.975085
+Model 0 Validation r2 = 0.560389
+Model 0 Validation ci = 0.813966
+Epoch 6
+Model 0 Validation mse = 0.980793
+Model 0 Validation rmse = 0.990350
+Model 0 Validation r2 = 0.546517
+Model 0 Validation ci = 0.818545
+Epoch 7
+Model 0 Validation mse = 0.934327
+Model 0 Validation rmse = 0.966606
+Model 0 Validation r2 = 0.568001
+Model 0 Validation ci = 0.820915
+Epoch 8
+Model 0 Validation mse = 0.832444
+Model 0 Validation rmse = 0.912384
+Model 0 Validation r2 = 0.615108
+Model 0 Validation ci = 0.823477
+Epoch 9
+Model 0 Validation mse = 0.884365
+Model 0 Validation rmse = 0.940407
+Model 0 Validation r2 = 0.591102
+Model 0 Validation ci = 0.826079
+Epoch 10
+Model 0 Validation mse = 0.743490
+Model 0 Validation rmse = 0.862259
+Model 0 Validation r2 = 0.656237
+Model 0 Validation ci = 0.828278
+Epoch 11
+Model 0 Validation mse = 0.732566
+Model 0 Validation rmse = 0.855901
+Model 0 Validation r2 = 0.661288
+Model 0 Validation ci = 0.829293
+Epoch 12
+Model 0 Validation mse = 0.699856
+Model 0 Validation rmse = 0.836574
+Model 0 Validation r2 = 0.676412
+Model 0 Validation ci = 0.831159
+Epoch 13
+Model 0 Validation mse = 0.707849
+Model 0 Validation rmse = 0.841338
+Model 0 Validation r2 = 0.672716
+Model 0 Validation ci = 0.832002
+Epoch 14
+Model 0 Validation mse = 0.691562
+Model 0 Validation rmse = 0.831602
+Model 0 Validation r2 = 0.680247
+Model 0 Validation ci = 0.833415
+Epoch 15
+Model 0 Validation mse = 0.666177
+Model 0 Validation rmse = 0.816196
+Model 0 Validation r2 = 0.691984
+Model 0 Validation ci = 0.833495
+Epoch 16
+Model 0 Validation mse = 0.683734
+Model 0 Validation rmse = 0.826882
+Model 0 Validation r2 = 0.683866
+Model 0 Validation ci = 0.835049
+Epoch 17
+Model 0 Validation mse = 0.642764
+Model 0 Validation rmse = 0.801726
+Model 0 Validation r2 = 0.702809
+Model 0 Validation ci = 0.836512
+Epoch 18
+Model 0 Validation mse = 0.627535
+Model 0 Validation rmse = 0.792171
+Model 0 Validation r2 = 0.709851
+Model 0 Validation ci = 0.836752
+Epoch 19
+Model 0 Validation mse = 0.636247
+Model 0 Validation rmse = 0.797651
+Model 0 Validation r2 = 0.705822
+Model 0 Validation ci = 0.837419
+Epoch 20
+Model 0 Validation mse = 0.639789
+Model 0 Validation rmse = 0.799868
+Model 0 Validation r2 = 0.704185
+Model 0 Validation ci = 0.836595
+Epoch 21
+Model 0 Validation mse = 0.622680
+Model 0 Validation rmse = 0.789101
+Model 0 Validation r2 = 0.712095
+Model 0 Validation ci = 0.838372
+Epoch 22
+Model 0 Validation mse = 0.623899
+Model 0 Validation rmse = 0.789873
+Model 0 Validation r2 = 0.711532
+Model 0 Validation ci = 0.838952
+Epoch 23
+Model 0 Validation mse = 0.612785
+Model 0 Validation rmse = 0.782806
+Model 0 Validation r2 = 0.716670
+Model 0 Validation ci = 0.839933
+Epoch 24
+Model 0 Validation mse = 0.592933
+Model 0 Validation rmse = 0.770022
+Model 0 Validation r2 = 0.725849
+Model 0 Validation ci = 0.839978
+Epoch 25
+Model 0 Validation mse = 0.612655
+Model 0 Validation rmse = 0.782723
+Model 0 Validation r2 = 0.716730
+Model 0 Validation ci = 0.839791
+Epoch 26
+Model 0 Validation mse = 0.610944
+Model 0 Validation rmse = 0.781629
+Model 0 Validation r2 = 0.717522
+Model 0 Validation ci = 0.841006
+Epoch 27
+Model 0 Validation mse = 0.626759
+Model 0 Validation rmse = 0.791681
+Model 0 Validation r2 = 0.710210
+Model 0 Validation ci = 0.841567
+Epoch 28
+Model 0 Validation mse = 0.561925
+Model 0 Validation rmse = 0.749616
+Model 0 Validation r2 = 0.740187
+Model 0 Validation ci = 0.841253
+Epoch 29
+Model 0 Validation mse = 0.552246
+Model 0 Validation rmse = 0.743133
+Model 0 Validation r2 = 0.744661
+Model 0 Validation ci = 0.842601
+Epoch 30
+Model 0 Validation mse = 0.552059
+Model 0 Validation rmse = 0.743007
+Model 0 Validation r2 = 0.744748
+Model 0 Validation ci = 0.842270
+Epoch 31
+Model 0 Validation mse = 0.581730
+Model 0 Validation rmse = 0.762712
+Model 0 Validation r2 = 0.731029
+Model 0 Validation ci = 0.842040
+Epoch 32
+Model 0 Validation mse = 0.558291
+Model 0 Validation rmse = 0.747189
+Model 0 Validation r2 = 0.741867
+Model 0 Validation ci = 0.842600
+Epoch 33
+Model 0 Validation mse = 0.561166
+Model 0 Validation rmse = 0.749110
+Model 0 Validation r2 = 0.740537
+Model 0 Validation ci = 0.841937
+Epoch 34
+Model 0 Validation mse = 0.571959
+Model 0 Validation rmse = 0.756280
+Model 0 Validation r2 = 0.735547
+Model 0 Validation ci = 0.842922
+Epoch 35
+Model 0 Validation mse = 0.555860
+Model 0 Validation rmse = 0.745560
+Model 0 Validation r2 = 0.742991
+Model 0 Validation ci = 0.843875
+Epoch 36
+Model 0 Validation mse = 0.554987
+Model 0 Validation rmse = 0.744974
+Model 0 Validation r2 = 0.743394
+Model 0 Validation ci = 0.843729
+Epoch 37
+Model 0 Validation mse = 0.541637
+Model 0 Validation rmse = 0.735960
+Model 0 Validation r2 = 0.749567
+Model 0 Validation ci = 0.844039
+Epoch 38
+Model 0 Validation mse = 0.557867
+Model 0 Validation rmse = 0.746905
+Model 0 Validation r2 = 0.742063
+Model 0 Validation ci = 0.844390
+Epoch 39
+Model 0 Validation mse = 0.549916
+Model 0 Validation rmse = 0.741563
+Model 0 Validation r2 = 0.745739
+Model 0 Validation ci = 0.844143
+Epoch 40
+Model 0 Validation mse = 0.535924
+Model 0 Validation rmse = 0.732068
+Model 0 Validation r2 = 0.752208
+Model 0 Validation ci = 0.844385
+Epoch 41
+Model 0 Validation mse = 0.552487
+Model 0 Validation rmse = 0.743295
+Model 0 Validation r2 = 0.744550
+Model 0 Validation ci = 0.844092
+Epoch 42
+Model 0 Validation mse = 0.535101
+Model 0 Validation rmse = 0.731506
+Model 0 Validation r2 = 0.752589
+Model 0 Validation ci = 0.844345
+Epoch 43
+Model 0 Validation mse = 0.538277
+Model 0 Validation rmse = 0.733674
+Model 0 Validation r2 = 0.751120
+Model 0 Validation ci = 0.844573
+Epoch 44
+Model 0 Validation mse = 0.542451
+Model 0 Validation rmse = 0.736513
+Model 0 Validation r2 = 0.749190
+Model 0 Validation ci = 0.844438
+Epoch 45
+Model 0 Validation mse = 0.533488
+Model 0 Validation rmse = 0.730402
+Model 0 Validation r2 = 0.753335
+Model 0 Validation ci = 0.844887
+Epoch 46
+Model 0 Validation mse = 0.530719
+Model 0 Validation rmse = 0.728504
+Model 0 Validation r2 = 0.754615
+Model 0 Validation ci = 0.845855
+Epoch 47
+Model 0 Validation mse = 0.538828
+Model 0 Validation rmse = 0.734049
+Model 0 Validation r2 = 0.750865
+Model 0 Validation ci = 0.844732
+Epoch 48
+Model 0 Validation mse = 0.532303
+Model 0 Validation rmse = 0.729591
+Model 0 Validation r2 = 0.753882
+Model 0 Validation ci = 0.844878
+Epoch 49
+Model 0 Validation mse = 0.531009
+Model 0 Validation rmse = 0.728703
+Model 0 Validation r2 = 0.754481
+Model 0 Validation ci = 0.844982
+Epoch 50
+Model 0 Validation mse = 0.525065
+Model 0 Validation rmse = 0.724614
+Model 0 Validation r2 = 0.757229
+Model 0 Validation ci = 0.844909
+Epoch 51
+Model 0 Validation mse = 0.522966
+Model 0 Validation rmse = 0.723164
+Model 0 Validation r2 = 0.758200
+Model 0 Validation ci = 0.845490
+Epoch 52
+Model 0 Validation mse = 0.529113
+Model 0 Validation rmse = 0.727401
+Model 0 Validation r2 = 0.755358
+Model 0 Validation ci = 0.845975
+Epoch 53
+Model 0 Validation mse = 0.529750
+Model 0 Validation rmse = 0.727839
+Model 0 Validation r2 = 0.755063
+Model 0 Validation ci = 0.846177
+Epoch 54
+Model 0 Validation mse = 0.514465
+Model 0 Validation rmse = 0.717262
+Model 0 Validation r2 = 0.762130
+Model 0 Validation ci = 0.846046
+Epoch 55
+Model 0 Validation mse = 0.517607
+Model 0 Validation rmse = 0.719449
+Model 0 Validation r2 = 0.760678
+Model 0 Validation ci = 0.845893
+Epoch 56
+Model 0 Validation mse = 0.528957
+Model 0 Validation rmse = 0.727294
+Model 0 Validation r2 = 0.755430
+Model 0 Validation ci = 0.846527
+Epoch 57
+Model 0 Validation mse = 0.522391
+Model 0 Validation rmse = 0.722766
+Model 0 Validation r2 = 0.758465
+Model 0 Validation ci = 0.846279
+Epoch 58
+Model 0 Validation mse = 0.516554
+Model 0 Validation rmse = 0.718717
+Model 0 Validation r2 = 0.761164
+Model 0 Validation ci = 0.845976
+Epoch 59
+Model 0 Validation mse = 0.517773
+Model 0 Validation rmse = 0.719564
+Model 0 Validation r2 = 0.760601
+Model 0 Validation ci = 0.846628
+Epoch 60
+Model 0 Validation mse = 0.525865
+Model 0 Validation rmse = 0.725165
+Model 0 Validation r2 = 0.756859
+Model 0 Validation ci = 0.846832
+Epoch 61
+Model 0 Validation mse = 0.526423
+Model 0 Validation rmse = 0.725550
+Model 0 Validation r2 = 0.756601
+Model 0 Validation ci = 0.847160
+Epoch 62
+Model 0 Validation mse = 0.521387
+Model 0 Validation rmse = 0.722071
+Model 0 Validation r2 = 0.758930
+Model 0 Validation ci = 0.846890
+Epoch 63
+Model 0 Validation mse = 0.512119
+Model 0 Validation rmse = 0.715625
+Model 0 Validation r2 = 0.763215
+Model 0 Validation ci = 0.846810
+Epoch 64
+Model 0 Validation mse = 0.521538
+Model 0 Validation rmse = 0.722176
+Model 0 Validation r2 = 0.758860
+Model 0 Validation ci = 0.847456
+Epoch 65
+Model 0 Validation mse = 0.521589
+Model 0 Validation rmse = 0.722211
+Model 0 Validation r2 = 0.758836
+Model 0 Validation ci = 0.847249
+Epoch 66
+Model 0 Validation mse = 0.516093
+Model 0 Validation rmse = 0.718396
+Model 0 Validation r2 = 0.761378
+Model 0 Validation ci = 0.847340
+Epoch 67
+Model 0 Validation mse = 0.517627
+Model 0 Validation rmse = 0.719463
+Model 0 Validation r2 = 0.760668
+Model 0 Validation ci = 0.846487
+Epoch 68
+Model 0 Validation mse = 0.516520
+Model 0 Validation rmse = 0.718693
+Model 0 Validation r2 = 0.761180
+Model 0 Validation ci = 0.847106
+Epoch 69
+Model 0 Validation mse = 0.518034
+Model 0 Validation rmse = 0.719746
+Model 0 Validation r2 = 0.760480
+Model 0 Validation ci = 0.847113
+Epoch 70
+Model 0 Validation mse = 0.514270
+Model 0 Validation rmse = 0.717126
+Model 0 Validation r2 = 0.762220
+Model 0 Validation ci = 0.846787
+Epoch 71
+Model 0 Validation mse = 0.516218
+Model 0 Validation rmse = 0.718483
+Model 0 Validation r2 = 0.761320
+Model 0 Validation ci = 0.846980
+Epoch 72
+Model 0 Validation mse = 0.524780
+Model 0 Validation rmse = 0.724417
+Model 0 Validation r2 = 0.757361
+Model 0 Validation ci = 0.846902
+Epoch 73
+Model 0 Validation mse = 0.512693
+Model 0 Validation rmse = 0.716026
+Model 0 Validation r2 = 0.762949
+Model 0 Validation ci = 0.847031
+Epoch 74
+Model 0 Validation mse = 0.514079
+Model 0 Validation rmse = 0.716993
+Model 0 Validation r2 = 0.762308
+Model 0 Validation ci = 0.847455
+Epoch 75
+Model 0 Validation mse = 0.515300
+Model 0 Validation rmse = 0.717844
+Model 0 Validation r2 = 0.761744
+Model 0 Validation ci = 0.847201
+Epoch 76
+Model 0 Validation mse = 0.522661
+Model 0 Validation rmse = 0.722953
+Model 0 Validation r2 = 0.758340
+Model 0 Validation ci = 0.847325
+Epoch 77
+Model 0 Validation mse = 0.515968
+Model 0 Validation rmse = 0.718309
+Model 0 Validation r2 = 0.761435
+Model 0 Validation ci = 0.847405
+Epoch 78
+Model 0 Validation mse = 0.523556
+Model 0 Validation rmse = 0.723572
+Model 0 Validation r2 = 0.757927
+Model 0 Validation ci = 0.847078
+Epoch 79
+Model 0 Validation mse = 0.522363
+Model 0 Validation rmse = 0.722747
+Model 0 Validation r2 = 0.758479
+Model 0 Validation ci = 0.847255
+Epoch 80
+Model 0 Validation mse = 0.518316
+Model 0 Validation rmse = 0.719942
+Model 0 Validation r2 = 0.760350
+Model 0 Validation ci = 0.847655
+Epoch 81
+Model 0 Validation mse = 0.517424
+Model 0 Validation rmse = 0.719322
+Model 0 Validation r2 = 0.760762
+Model 0 Validation ci = 0.848071
+Epoch 82
+Model 0 Validation mse = 0.512818
+Model 0 Validation rmse = 0.716113
+Model 0 Validation r2 = 0.762891
+Model 0 Validation ci = 0.848001
+Epoch 83
+Model 0 Validation mse = 0.510847
+Model 0 Validation rmse = 0.714736
+Model 0 Validation r2 = 0.763803
+Model 0 Validation ci = 0.848086
+Epoch 84
+Model 0 Validation mse = 0.517002
+Model 0 Validation rmse = 0.719028
+Model 0 Validation r2 = 0.760957
+Model 0 Validation ci = 0.848062
+Epoch 85
+Model 0 Validation mse = 0.518355
+Model 0 Validation rmse = 0.719968
+Model 0 Validation r2 = 0.760332
+Model 0 Validation ci = 0.847868
+Epoch 86
+Model 0 Validation mse = 0.513601
+Model 0 Validation rmse = 0.716660
+Model 0 Validation r2 = 0.762530
+Model 0 Validation ci = 0.848233
+Epoch 87
+Model 0 Validation mse = 0.510352
+Model 0 Validation rmse = 0.714389
+Model 0 Validation r2 = 0.764032
+Model 0 Validation ci = 0.848579
+Epoch 88
+Model 0 Validation mse = 0.515480
+Model 0 Validation rmse = 0.717969
+Model 0 Validation r2 = 0.761661
+Model 0 Validation ci = 0.848038
+Epoch 89
+Model 0 Validation mse = 0.506425
+Model 0 Validation rmse = 0.711635
+Model 0 Validation r2 = 0.765848
+Model 0 Validation ci = 0.848780
+Epoch 90
+Model 0 Validation mse = 0.516344
+Model 0 Validation rmse = 0.718571
+Model 0 Validation r2 = 0.761261
+Model 0 Validation ci = 0.848154
+Epoch 91
+Model 0 Validation mse = 0.517165
+Model 0 Validation rmse = 0.719142
+Model 0 Validation r2 = 0.760882
+Model 0 Validation ci = 0.848485
+Epoch 92
+Model 0 Validation mse = 0.515532
+Model 0 Validation rmse = 0.718006
+Model 0 Validation r2 = 0.761637
+Model 0 Validation ci = 0.848686
+Epoch 93
+Model 0 Validation mse = 0.513163
+Model 0 Validation rmse = 0.716354
+Model 0 Validation r2 = 0.762732
+Model 0 Validation ci = 0.848888
+Epoch 94
+Model 0 Validation mse = 0.505179
+Model 0 Validation rmse = 0.710759
+Model 0 Validation r2 = 0.766424
+Model 0 Validation ci = 0.849354
+Epoch 95
+Model 0 Validation mse = 0.506763
+Model 0 Validation rmse = 0.711873
+Model 0 Validation r2 = 0.765691
+Model 0 Validation ci = 0.848375
+Epoch 96
+Model 0 Validation mse = 0.516047
+Model 0 Validation rmse = 0.718364
+Model 0 Validation r2 = 0.761399
+Model 0 Validation ci = 0.848821
+Epoch 97
+Model 0 Validation mse = 0.513916
+Model 0 Validation rmse = 0.716879
+Model 0 Validation r2 = 0.762384
+Model 0 Validation ci = 0.848538
+Epoch 98
+Model 0 Validation mse = 0.507786
+Model 0 Validation rmse = 0.712591
+Model 0 Validation r2 = 0.765218
+Model 0 Validation ci = 0.848932
+Epoch 99
+Model 0 Validation mse = 0.510387
+Model 0 Validation rmse = 0.714414
+Model 0 Validation r2 = 0.764015
+Model 0 Validation ci = 0.848773
+Epoch 100
+Model 0 Validation mse = 0.511965
+Model 0 Validation rmse = 0.715518
+Model 0 Validation r2 = 0.763286
+Model 0 Validation ci = 0.848287
+Epoch 101
+Model 0 Validation mse = 0.509979
+Model 0 Validation rmse = 0.714128
+Model 0 Validation r2 = 0.764204
+Model 0 Validation ci = 0.848799
+Epoch 102
+Model 0 Validation mse = 0.512524
+Model 0 Validation rmse = 0.715908
+Model 0 Validation r2 = 0.763027
+Model 0 Validation ci = 0.848901
+Epoch 103
+Model 0 Validation mse = 0.513397
+Model 0 Validation rmse = 0.716517
+Model 0 Validation r2 = 0.762624
+Model 0 Validation ci = 0.848151
+Epoch 104
+Model 0 Validation mse = 0.505180
+Model 0 Validation rmse = 0.710760
+Model 0 Validation r2 = 0.766423
+Model 0 Validation ci = 0.848947
+Epoch 105
+Model 0 Validation mse = 0.517383
+Model 0 Validation rmse = 0.719294
+Model 0 Validation r2 = 0.760781
+Model 0 Validation ci = 0.849037
+Epoch 106
+Model 0 Validation mse = 0.512282
+Model 0 Validation rmse = 0.715739
+Model 0 Validation r2 = 0.763139
+Model 0 Validation ci = 0.849016
+Epoch 107
+Model 0 Validation mse = 0.507866
+Model 0 Validation rmse = 0.712647
+Model 0 Validation r2 = 0.765181
+Model 0 Validation ci = 0.849447
+Epoch 108
+Model 0 Validation mse = 0.516804
+Model 0 Validation rmse = 0.718891
+Model 0 Validation r2 = 0.761049
+Model 0 Validation ci = 0.849543
+Epoch 109
+Model 0 Validation mse = 0.513159
+Model 0 Validation rmse = 0.716351
+Model 0 Validation r2 = 0.762734
+Model 0 Validation ci = 0.849043
+Epoch 110
+Model 0 Validation mse = 0.512932
+Model 0 Validation rmse = 0.716192
+Model 0 Validation r2 = 0.762839
+Model 0 Validation ci = 0.848833
+Epoch 111
+Model 0 Validation mse = 0.510499
+Model 0 Validation rmse = 0.714492
+Model 0 Validation r2 = 0.763964
+Model 0 Validation ci = 0.849150
+Epoch 112
+Model 0 Validation mse = 0.511385
+Model 0 Validation rmse = 0.715112
+Model 0 Validation r2 = 0.763554
+Model 0 Validation ci = 0.849532
+Epoch 113
+Model 0 Validation mse = 0.515493
+Model 0 Validation rmse = 0.717978
+Model 0 Validation r2 = 0.761655
+Model 0 Validation ci = 0.848814
+Epoch 114
+Model 0 Validation mse = 0.512814
+Model 0 Validation rmse = 0.716110
+Model 0 Validation r2 = 0.762893
+Model 0 Validation ci = 0.849485
+Epoch 115
+Model 0 Validation mse = 0.505909
+Model 0 Validation rmse = 0.711273
+Model 0 Validation r2 = 0.766086
+Model 0 Validation ci = 0.849565
+Epoch 116
+Model 0 Validation mse = 0.504280
+Model 0 Validation rmse = 0.710126
+Model 0 Validation r2 = 0.766839
+Model 0 Validation ci = 0.849313
+Epoch 117
+Model 0 Validation mse = 0.507453
+Model 0 Validation rmse = 0.712358
+Model 0 Validation r2 = 0.765372
+Model 0 Validation ci = 0.849160
+Epoch 118
+Model 0 Validation mse = 0.512706
+Model 0 Validation rmse = 0.716035
+Model 0 Validation r2 = 0.762943
+Model 0 Validation ci = 0.848595
+Epoch 119
+Model 0 Validation mse = 0.514252
+Model 0 Validation rmse = 0.717114
+Model 0 Validation r2 = 0.762229
+Model 0 Validation ci = 0.849409
+Model 0 best validation mse = 0.504280 on epoch 116
+Loading pretrained parameter "smiles_transformer.pe.pe".
+Loading pretrained parameter "smiles_transformer.drug_embedding.weight".
+Loading pretrained parameter "smiles_transformer.lin.weight".
+Loading pretrained parameter "smiles_transformer.lin.bias".
+Loading pretrained parameter "smiles_transformer.LN.weight".
+Loading pretrained parameter "smiles_transformer.LN.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.self_attn.in_proj_weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.self_attn.in_proj_bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.self_attn.out_proj.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.self_attn.out_proj.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.linear1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.linear1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.linear2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.linear2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.norm1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.norm1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.norm2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.norm2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.self_attn.in_proj_weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.self_attn.in_proj_bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.self_attn.out_proj.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.self_attn.out_proj.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.linear1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.linear1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.linear2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.linear2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.norm1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.norm1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.norm2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.norm2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.self_attn.in_proj_weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.self_attn.in_proj_bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.self_attn.out_proj.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.self_attn.out_proj.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.linear1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.linear1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.linear2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.linear2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.norm1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.norm1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.norm2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.norm2.bias".
+Loading pretrained parameter "prot_transformer.pe.pe".
+Loading pretrained parameter "prot_transformer.prot_embedding.weight".
+Loading pretrained parameter "prot_transformer.lin.weight".
+Loading pretrained parameter "prot_transformer.lin.bias".
+Loading pretrained parameter "prot_transformer.LN.weight".
+Loading pretrained parameter "prot_transformer.LN.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.self_attn.in_proj_weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.self_attn.in_proj_bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.self_attn.out_proj.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.self_attn.out_proj.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.linear1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.linear1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.linear2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.linear2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.norm1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.norm1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.norm2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.norm2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.self_attn.in_proj_weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.self_attn.in_proj_bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.self_attn.out_proj.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.self_attn.out_proj.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.linear1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.linear1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.linear2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.linear2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.norm1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.norm1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.norm2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.norm2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.self_attn.in_proj_weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.self_attn.in_proj_bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.self_attn.out_proj.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.self_attn.out_proj.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.linear1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.linear1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.linear2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.linear2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.norm1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.norm1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.norm2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.norm2.bias".
+Loading pretrained parameter "hidden_norm.weight".
+Loading pretrained parameter "hidden_norm.bias".
+Loading pretrained parameter "fc_mg.weight".
+Loading pretrained parameter "fc_mg.bias".
+Loading pretrained parameter "encoder.encoder.0.cached_zero_vector".
+Loading pretrained parameter "encoder.encoder.0.W_i.weight".
+Loading pretrained parameter "encoder.encoder.0.W_h.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.bias".
+Loading pretrained parameter "sps_embedding.weight".
+Loading pretrained parameter "conv_in.weight".
+Loading pretrained parameter "conv_in.bias".
+Loading pretrained parameter "convs.0.weight".
+Loading pretrained parameter "convs.0.bias".
+Loading pretrained parameter "convs.1.weight".
+Loading pretrained parameter "convs.1.bias".
+Loading pretrained parameter "convs.2.weight".
+Loading pretrained parameter "convs.2.bias".
+Loading pretrained parameter "cnn_fc.weight".
+Loading pretrained parameter "cnn_fc.bias".
+Loading pretrained parameter "norm.weight".
+Loading pretrained parameter "norm.bias".
+Loading pretrained parameter "Final_FC.0.weight".
+Loading pretrained parameter "Final_FC.0.bias".
+Loading pretrained parameter "Final_FC.1.weight".
+Loading pretrained parameter "Final_FC.1.bias".
+Loading pretrained parameter "Final_FC.2.weight".
+Loading pretrained parameter "Final_FC.2.bias".
+Loading pretrained parameter "Final_FC.3.weight".
+Loading pretrained parameter "Final_FC.3.bias".
+Moving model to cuda
+Model 0 test mse = 0.518862
+Model 0 test rmse = 0.720321
+Model 0 test r2 = 0.762437
+Model 0 test ci = 0.847937
+Building model 1
+InteractionModel(
+  (smiles_transformer): Drug_Encoder(
+    (pe): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (drug_embedding): Embedding(2588, 64)
+    (lin): Linear(in_features=64, out_features=300, bias=True)
+    (LN): LayerNorm((300,), eps=1e-05, elementwise_affine=True)
+    (dropout): Dropout(p=0.1, inplace=False)
+    (transformer_encoderlayer): TransformerEncoderLayer(
+      (self_attn): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+      )
+      (linear1): Linear(in_features=64, out_features=512, bias=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+      (linear2): Linear(in_features=512, out_features=64, bias=True)
+      (norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (dropout1): Dropout(p=0.1, inplace=False)
+      (dropout2): Dropout(p=0.1, inplace=False)
+    )
+    (transformer_encoder): TransformerEncoder(
+      (layers): ModuleList(
+        (0-1): 2 x TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=512, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+  )
+  (prot_transformer): Protein_Encoder(
+    (pe): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (prot_embedding): Embedding(4116, 64)
+    (lin): Linear(in_features=64, out_features=300, bias=True)
+    (LN): LayerNorm((300,), eps=1e-05, elementwise_affine=True)
+    (dropout): Dropout(p=0.1, inplace=False)
+    (transformer_encoderlayer): TransformerEncoderLayer(
+      (self_attn): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+      )
+      (linear1): Linear(in_features=64, out_features=512, bias=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+      (linear2): Linear(in_features=512, out_features=64, bias=True)
+      (norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (dropout1): Dropout(p=0.1, inplace=False)
+      (dropout2): Dropout(p=0.1, inplace=False)
+    )
+    (transformer_encoder): TransformerEncoder(
+      (layers): ModuleList(
+        (0-1): 2 x TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=512, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+  )
+  (relu): ReLU()
+  (hidden_norm): LayerNorm((300,), eps=1e-05, elementwise_affine=True)
+  (do): Dropout(p=0.1, inplace=False)
+  (fc_mg): Linear(in_features=2048, out_features=300, bias=True)
+  (encoder): MPN(
+    (encoder): ModuleList(
+      (0): MPNEncoder(
+        (dropout_layer): Dropout(p=0.1, inplace=False)
+        (act_func): ReLU()
+        (W_i): Linear(in_features=147, out_features=300, bias=False)
+        (W_h): Linear(in_features=300, out_features=300, bias=False)
+        (W_o): Linear(in_features=433, out_features=300, bias=True)
+      )
+    )
+  )
+  (sps_embedding): Embedding(74, 128)
+  (conv_in): Conv1d(70, 64, kernel_size=(1,), stride=(1,))
+  (convs): ModuleList(
+    (0-2): 3 x Conv1d(128, 256, kernel_size=(7,), stride=(1,), padding=(3,))
+  )
+  (cnn_fc): Linear(in_features=8192, out_features=300, bias=True)
+  (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+  (Final_FC): ModuleList(
+    (0): Linear(in_features=600, out_features=128, bias=True)
+    (1): Linear(in_features=128, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=32, bias=True)
+    (3): Linear(in_features=32, out_features=1, bias=True)
+  )
+)
+Number of parameters = 5,095,441
+Moving model to cuda
+Epoch 0
+Model 1 Validation mse = 1.483365
+Model 1 Validation rmse = 1.217935
+Model 1 Validation r2 = 0.314146
+Model 1 Validation ci = 0.746478
+Epoch 1
+Model 1 Validation mse = 1.256204
+Model 1 Validation rmse = 1.120805
+Model 1 Validation r2 = 0.419177
+Model 1 Validation ci = 0.776203
+Epoch 2
+Model 1 Validation mse = 1.111299
+Model 1 Validation rmse = 1.054181
+Model 1 Validation r2 = 0.486176
+Model 1 Validation ci = 0.792040
+Epoch 3
+Model 1 Validation mse = 1.190973
+Model 1 Validation rmse = 1.091317
+Model 1 Validation r2 = 0.449337
+Model 1 Validation ci = 0.802690
+Epoch 4
+Model 1 Validation mse = 0.989863
+Model 1 Validation rmse = 0.994919
+Model 1 Validation r2 = 0.542323
+Model 1 Validation ci = 0.808902
+Epoch 5
+Model 1 Validation mse = 0.788838
+Model 1 Validation rmse = 0.888165
+Model 1 Validation r2 = 0.635270
+Model 1 Validation ci = 0.813430
+Epoch 6
+Model 1 Validation mse = 0.817658
+Model 1 Validation rmse = 0.904244
+Model 1 Validation r2 = 0.621945
+Model 1 Validation ci = 0.818346
+Epoch 7
+Model 1 Validation mse = 0.703164
+Model 1 Validation rmse = 0.838549
+Model 1 Validation r2 = 0.674883
+Model 1 Validation ci = 0.820267
+Epoch 8
+Model 1 Validation mse = 0.722238
+Model 1 Validation rmse = 0.849846
+Model 1 Validation r2 = 0.666063
+Model 1 Validation ci = 0.823452
+Epoch 9
+Model 1 Validation mse = 0.669760
+Model 1 Validation rmse = 0.818388
+Model 1 Validation r2 = 0.690328
+Model 1 Validation ci = 0.824846
+Epoch 10
+Model 1 Validation mse = 0.632704
+Model 1 Validation rmse = 0.795427
+Model 1 Validation r2 = 0.707461
+Model 1 Validation ci = 0.827967
+Epoch 11
+Model 1 Validation mse = 0.630721
+Model 1 Validation rmse = 0.794180
+Model 1 Validation r2 = 0.708378
+Model 1 Validation ci = 0.827399
+Epoch 12
+Model 1 Validation mse = 0.615225
+Model 1 Validation rmse = 0.784363
+Model 1 Validation r2 = 0.715542
+Model 1 Validation ci = 0.830204
+Epoch 13
+Model 1 Validation mse = 0.602842
+Model 1 Validation rmse = 0.776429
+Model 1 Validation r2 = 0.721268
+Model 1 Validation ci = 0.831283
+Epoch 14
+Model 1 Validation mse = 0.585609
+Model 1 Validation rmse = 0.765251
+Model 1 Validation r2 = 0.729236
+Model 1 Validation ci = 0.832844
+Epoch 15
+Model 1 Validation mse = 0.602285
+Model 1 Validation rmse = 0.776070
+Model 1 Validation r2 = 0.721525
+Model 1 Validation ci = 0.833888
+Epoch 16
+Model 1 Validation mse = 0.598671
+Model 1 Validation rmse = 0.773739
+Model 1 Validation r2 = 0.723196
+Model 1 Validation ci = 0.835030
+Epoch 17
+Model 1 Validation mse = 0.595627
+Model 1 Validation rmse = 0.771768
+Model 1 Validation r2 = 0.724604
+Model 1 Validation ci = 0.835848
+Epoch 18
+Model 1 Validation mse = 0.575830
+Model 1 Validation rmse = 0.758834
+Model 1 Validation r2 = 0.733757
+Model 1 Validation ci = 0.835587
+Epoch 19
+Model 1 Validation mse = 0.596755
+Model 1 Validation rmse = 0.772499
+Model 1 Validation r2 = 0.724082
+Model 1 Validation ci = 0.836829
+Epoch 20
+Model 1 Validation mse = 0.599366
+Model 1 Validation rmse = 0.774188
+Model 1 Validation r2 = 0.722875
+Model 1 Validation ci = 0.837668
+Epoch 21
+Model 1 Validation mse = 0.577440
+Model 1 Validation rmse = 0.759895
+Model 1 Validation r2 = 0.733013
+Model 1 Validation ci = 0.838268
+Epoch 22
+Model 1 Validation mse = 0.563152
+Model 1 Validation rmse = 0.750434
+Model 1 Validation r2 = 0.739619
+Model 1 Validation ci = 0.837459
+Epoch 23
+Model 1 Validation mse = 0.547745
+Model 1 Validation rmse = 0.740098
+Model 1 Validation r2 = 0.746743
+Model 1 Validation ci = 0.839503
+Epoch 24
+Model 1 Validation mse = 0.573465
+Model 1 Validation rmse = 0.757275
+Model 1 Validation r2 = 0.734850
+Model 1 Validation ci = 0.839279
+Epoch 25
+Model 1 Validation mse = 0.554836
+Model 1 Validation rmse = 0.744873
+Model 1 Validation r2 = 0.743464
+Model 1 Validation ci = 0.839339
+Epoch 26
+Model 1 Validation mse = 0.560336
+Model 1 Validation rmse = 0.748556
+Model 1 Validation r2 = 0.740921
+Model 1 Validation ci = 0.840453
+Epoch 27
+Model 1 Validation mse = 0.551654
+Model 1 Validation rmse = 0.742734
+Model 1 Validation r2 = 0.744935
+Model 1 Validation ci = 0.840833
+Epoch 28
+Model 1 Validation mse = 0.562159
+Model 1 Validation rmse = 0.749773
+Model 1 Validation r2 = 0.740078
+Model 1 Validation ci = 0.841269
+Epoch 29
+Model 1 Validation mse = 0.558590
+Model 1 Validation rmse = 0.747389
+Model 1 Validation r2 = 0.741728
+Model 1 Validation ci = 0.841231
+Epoch 30
+Model 1 Validation mse = 0.550729
+Model 1 Validation rmse = 0.742111
+Model 1 Validation r2 = 0.745363
+Model 1 Validation ci = 0.841276
+Epoch 31
+Model 1 Validation mse = 0.547393
+Model 1 Validation rmse = 0.739860
+Model 1 Validation r2 = 0.746905
+Model 1 Validation ci = 0.841331
+Epoch 32
+Model 1 Validation mse = 0.545355
+Model 1 Validation rmse = 0.738481
+Model 1 Validation r2 = 0.747848
+Model 1 Validation ci = 0.842092
+Epoch 33
+Model 1 Validation mse = 0.544226
+Model 1 Validation rmse = 0.737717
+Model 1 Validation r2 = 0.748370
+Model 1 Validation ci = 0.842408
+Epoch 34
+Model 1 Validation mse = 0.543496
+Model 1 Validation rmse = 0.737222
+Model 1 Validation r2 = 0.748707
+Model 1 Validation ci = 0.842891
+Epoch 35
+Model 1 Validation mse = 0.534178
+Model 1 Validation rmse = 0.730875
+Model 1 Validation r2 = 0.753016
+Model 1 Validation ci = 0.843384
+Epoch 36
+Model 1 Validation mse = 0.544183
+Model 1 Validation rmse = 0.737688
+Model 1 Validation r2 = 0.748390
+Model 1 Validation ci = 0.843052
+Epoch 37
+Model 1 Validation mse = 0.541194
+Model 1 Validation rmse = 0.735659
+Model 1 Validation r2 = 0.749772
+Model 1 Validation ci = 0.842697
+Epoch 38
+Model 1 Validation mse = 0.549754
+Model 1 Validation rmse = 0.741454
+Model 1 Validation r2 = 0.745814
+Model 1 Validation ci = 0.843331
+Epoch 39
+Model 1 Validation mse = 0.557779
+Model 1 Validation rmse = 0.746846
+Model 1 Validation r2 = 0.742103
+Model 1 Validation ci = 0.843518
+Epoch 40
+Model 1 Validation mse = 0.538349
+Model 1 Validation rmse = 0.733723
+Model 1 Validation r2 = 0.751087
+Model 1 Validation ci = 0.843563
+Epoch 41
+Model 1 Validation mse = 0.532876
+Model 1 Validation rmse = 0.729984
+Model 1 Validation r2 = 0.753618
+Model 1 Validation ci = 0.843858
+Epoch 42
+Model 1 Validation mse = 0.528284
+Model 1 Validation rmse = 0.726832
+Model 1 Validation r2 = 0.755741
+Model 1 Validation ci = 0.843975
+Epoch 43
+Model 1 Validation mse = 0.538831
+Model 1 Validation rmse = 0.734051
+Model 1 Validation r2 = 0.750864
+Model 1 Validation ci = 0.844177
+Epoch 44
+Model 1 Validation mse = 0.527804
+Model 1 Validation rmse = 0.726501
+Model 1 Validation r2 = 0.755963
+Model 1 Validation ci = 0.844683
+Epoch 45
+Model 1 Validation mse = 0.534012
+Model 1 Validation rmse = 0.730761
+Model 1 Validation r2 = 0.753092
+Model 1 Validation ci = 0.843955
+Epoch 46
+Model 1 Validation mse = 0.527054
+Model 1 Validation rmse = 0.725985
+Model 1 Validation r2 = 0.756309
+Model 1 Validation ci = 0.844882
+Epoch 47
+Model 1 Validation mse = 0.532851
+Model 1 Validation rmse = 0.729966
+Model 1 Validation r2 = 0.753629
+Model 1 Validation ci = 0.844260
+Epoch 48
+Model 1 Validation mse = 0.520928
+Model 1 Validation rmse = 0.721753
+Model 1 Validation r2 = 0.759142
+Model 1 Validation ci = 0.845552
+Epoch 49
+Model 1 Validation mse = 0.525917
+Model 1 Validation rmse = 0.725201
+Model 1 Validation r2 = 0.756835
+Model 1 Validation ci = 0.844796
+Epoch 50
+Model 1 Validation mse = 0.523505
+Model 1 Validation rmse = 0.723537
+Model 1 Validation r2 = 0.757950
+Model 1 Validation ci = 0.845043
+Epoch 51
+Model 1 Validation mse = 0.519574
+Model 1 Validation rmse = 0.720815
+Model 1 Validation r2 = 0.759768
+Model 1 Validation ci = 0.845299
+Epoch 52
+Model 1 Validation mse = 0.526362
+Model 1 Validation rmse = 0.725508
+Model 1 Validation r2 = 0.756629
+Model 1 Validation ci = 0.845328
+Epoch 53
+Model 1 Validation mse = 0.532822
+Model 1 Validation rmse = 0.729946
+Model 1 Validation r2 = 0.753643
+Model 1 Validation ci = 0.844802
+Epoch 54
+Model 1 Validation mse = 0.519148
+Model 1 Validation rmse = 0.720519
+Model 1 Validation r2 = 0.759965
+Model 1 Validation ci = 0.845277
+Epoch 55
+Model 1 Validation mse = 0.518163
+Model 1 Validation rmse = 0.719835
+Model 1 Validation r2 = 0.760420
+Model 1 Validation ci = 0.845083
+Epoch 56
+Model 1 Validation mse = 0.523235
+Model 1 Validation rmse = 0.723350
+Model 1 Validation r2 = 0.758075
+Model 1 Validation ci = 0.845617
+Epoch 57
+Model 1 Validation mse = 0.516899
+Model 1 Validation rmse = 0.718957
+Model 1 Validation r2 = 0.761005
+Model 1 Validation ci = 0.845864
+Epoch 58
+Model 1 Validation mse = 0.517297
+Model 1 Validation rmse = 0.719234
+Model 1 Validation r2 = 0.760821
+Model 1 Validation ci = 0.846076
+Epoch 59
+Model 1 Validation mse = 0.523956
+Model 1 Validation rmse = 0.723848
+Model 1 Validation r2 = 0.757742
+Model 1 Validation ci = 0.845608
+Epoch 60
+Model 1 Validation mse = 0.520667
+Model 1 Validation rmse = 0.721573
+Model 1 Validation r2 = 0.759262
+Model 1 Validation ci = 0.845863
+Epoch 61
+Model 1 Validation mse = 0.515758
+Model 1 Validation rmse = 0.718163
+Model 1 Validation r2 = 0.761532
+Model 1 Validation ci = 0.845986
+Epoch 62
+Model 1 Validation mse = 0.514967
+Model 1 Validation rmse = 0.717612
+Model 1 Validation r2 = 0.761898
+Model 1 Validation ci = 0.846140
+Epoch 63
+Model 1 Validation mse = 0.518553
+Model 1 Validation rmse = 0.720106
+Model 1 Validation r2 = 0.760240
+Model 1 Validation ci = 0.845922
+Epoch 64
+Model 1 Validation mse = 0.519699
+Model 1 Validation rmse = 0.720902
+Model 1 Validation r2 = 0.759710
+Model 1 Validation ci = 0.846044
+Epoch 65
+Model 1 Validation mse = 0.516288
+Model 1 Validation rmse = 0.718532
+Model 1 Validation r2 = 0.761287
+Model 1 Validation ci = 0.846508
+Epoch 66
+Model 1 Validation mse = 0.517323
+Model 1 Validation rmse = 0.719252
+Model 1 Validation r2 = 0.760809
+Model 1 Validation ci = 0.846523
+Epoch 67
+Model 1 Validation mse = 0.519218
+Model 1 Validation rmse = 0.720568
+Model 1 Validation r2 = 0.759932
+Model 1 Validation ci = 0.845944
+Epoch 68
+Model 1 Validation mse = 0.517661
+Model 1 Validation rmse = 0.719487
+Model 1 Validation r2 = 0.760652
+Model 1 Validation ci = 0.846579
+Epoch 69
+Model 1 Validation mse = 0.517482
+Model 1 Validation rmse = 0.719362
+Model 1 Validation r2 = 0.760735
+Model 1 Validation ci = 0.846800
+Epoch 70
+Model 1 Validation mse = 0.521560
+Model 1 Validation rmse = 0.722191
+Model 1 Validation r2 = 0.758850
+Model 1 Validation ci = 0.846235
+Epoch 71
+Model 1 Validation mse = 0.510626
+Model 1 Validation rmse = 0.714581
+Model 1 Validation r2 = 0.763905
+Model 1 Validation ci = 0.846830
+Epoch 72
+Model 1 Validation mse = 0.519006
+Model 1 Validation rmse = 0.720421
+Model 1 Validation r2 = 0.760031
+Model 1 Validation ci = 0.846898
+Epoch 73
+Model 1 Validation mse = 0.508268
+Model 1 Validation rmse = 0.712929
+Model 1 Validation r2 = 0.764995
+Model 1 Validation ci = 0.847029
+Epoch 74
+Model 1 Validation mse = 0.505992
+Model 1 Validation rmse = 0.711331
+Model 1 Validation r2 = 0.766048
+Model 1 Validation ci = 0.847106
+Epoch 75
+Model 1 Validation mse = 0.505193
+Model 1 Validation rmse = 0.710769
+Model 1 Validation r2 = 0.766417
+Model 1 Validation ci = 0.847491
+Epoch 76
+Model 1 Validation mse = 0.512873
+Model 1 Validation rmse = 0.716152
+Model 1 Validation r2 = 0.762866
+Model 1 Validation ci = 0.846952
+Epoch 77
+Model 1 Validation mse = 0.516548
+Model 1 Validation rmse = 0.718713
+Model 1 Validation r2 = 0.761167
+Model 1 Validation ci = 0.847059
+Epoch 78
+Model 1 Validation mse = 0.509128
+Model 1 Validation rmse = 0.713532
+Model 1 Validation r2 = 0.764598
+Model 1 Validation ci = 0.846787
+Epoch 79
+Model 1 Validation mse = 0.513257
+Model 1 Validation rmse = 0.716419
+Model 1 Validation r2 = 0.762689
+Model 1 Validation ci = 0.847042
+Epoch 80
+Model 1 Validation mse = 0.511406
+Model 1 Validation rmse = 0.715126
+Model 1 Validation r2 = 0.763545
+Model 1 Validation ci = 0.846987
+Epoch 81
+Model 1 Validation mse = 0.501004
+Model 1 Validation rmse = 0.707816
+Model 1 Validation r2 = 0.768354
+Model 1 Validation ci = 0.847749
+Epoch 82
+Model 1 Validation mse = 0.503550
+Model 1 Validation rmse = 0.709612
+Model 1 Validation r2 = 0.767177
+Model 1 Validation ci = 0.847748
+Epoch 83
+Model 1 Validation mse = 0.510359
+Model 1 Validation rmse = 0.714394
+Model 1 Validation r2 = 0.764028
+Model 1 Validation ci = 0.847148
+Epoch 84
+Model 1 Validation mse = 0.508863
+Model 1 Validation rmse = 0.713346
+Model 1 Validation r2 = 0.764720
+Model 1 Validation ci = 0.847430
+Epoch 85
+Model 1 Validation mse = 0.502962
+Model 1 Validation rmse = 0.709198
+Model 1 Validation r2 = 0.767449
+Model 1 Validation ci = 0.847791
+Epoch 86
+Model 1 Validation mse = 0.507111
+Model 1 Validation rmse = 0.712117
+Model 1 Validation r2 = 0.765531
+Model 1 Validation ci = 0.847988
+Epoch 87
+Model 1 Validation mse = 0.508654
+Model 1 Validation rmse = 0.713200
+Model 1 Validation r2 = 0.764817
+Model 1 Validation ci = 0.847253
+Epoch 88
+Model 1 Validation mse = 0.514110
+Model 1 Validation rmse = 0.717015
+Model 1 Validation r2 = 0.762294
+Model 1 Validation ci = 0.847455
+Epoch 89
+Model 1 Validation mse = 0.512467
+Model 1 Validation rmse = 0.715868
+Model 1 Validation r2 = 0.763054
+Model 1 Validation ci = 0.847141
+Epoch 90
+Model 1 Validation mse = 0.508855
+Model 1 Validation rmse = 0.713341
+Model 1 Validation r2 = 0.764724
+Model 1 Validation ci = 0.847993
+Epoch 91
+Model 1 Validation mse = 0.514077
+Model 1 Validation rmse = 0.716992
+Model 1 Validation r2 = 0.762309
+Model 1 Validation ci = 0.847771
+Epoch 92
+Model 1 Validation mse = 0.503437
+Model 1 Validation rmse = 0.709533
+Model 1 Validation r2 = 0.767229
+Model 1 Validation ci = 0.848132
+Epoch 93
+Model 1 Validation mse = 0.506035
+Model 1 Validation rmse = 0.711361
+Model 1 Validation r2 = 0.766028
+Model 1 Validation ci = 0.847872
+Epoch 94
+Model 1 Validation mse = 0.505735
+Model 1 Validation rmse = 0.711150
+Model 1 Validation r2 = 0.766167
+Model 1 Validation ci = 0.847788
+Epoch 95
+Model 1 Validation mse = 0.498681
+Model 1 Validation rmse = 0.706173
+Model 1 Validation r2 = 0.769428
+Model 1 Validation ci = 0.848369
+Epoch 96
+Model 1 Validation mse = 0.508664
+Model 1 Validation rmse = 0.713207
+Model 1 Validation r2 = 0.764812
+Model 1 Validation ci = 0.847288
+Epoch 97
+Model 1 Validation mse = 0.504063
+Model 1 Validation rmse = 0.709974
+Model 1 Validation r2 = 0.766940
+Model 1 Validation ci = 0.848282
+Epoch 98
+Model 1 Validation mse = 0.505752
+Model 1 Validation rmse = 0.711163
+Model 1 Validation r2 = 0.766159
+Model 1 Validation ci = 0.848153
+Epoch 99
+Model 1 Validation mse = 0.503825
+Model 1 Validation rmse = 0.709806
+Model 1 Validation r2 = 0.767050
+Model 1 Validation ci = 0.847978
+Epoch 100
+Model 1 Validation mse = 0.504474
+Model 1 Validation rmse = 0.710263
+Model 1 Validation r2 = 0.766750
+Model 1 Validation ci = 0.848009
+Epoch 101
+Model 1 Validation mse = 0.500943
+Model 1 Validation rmse = 0.707773
+Model 1 Validation r2 = 0.768382
+Model 1 Validation ci = 0.848403
+Epoch 102
+Model 1 Validation mse = 0.502065
+Model 1 Validation rmse = 0.708566
+Model 1 Validation r2 = 0.767863
+Model 1 Validation ci = 0.848221
+Epoch 103
+Model 1 Validation mse = 0.503728
+Model 1 Validation rmse = 0.709738
+Model 1 Validation r2 = 0.767094
+Model 1 Validation ci = 0.848260
+Epoch 104
+Model 1 Validation mse = 0.502367
+Model 1 Validation rmse = 0.708779
+Model 1 Validation r2 = 0.767724
+Model 1 Validation ci = 0.848382
+Epoch 105
+Model 1 Validation mse = 0.501099
+Model 1 Validation rmse = 0.707883
+Model 1 Validation r2 = 0.768310
+Model 1 Validation ci = 0.848478
+Epoch 106
+Model 1 Validation mse = 0.507006
+Model 1 Validation rmse = 0.712044
+Model 1 Validation r2 = 0.765579
+Model 1 Validation ci = 0.848563
+Epoch 107
+Model 1 Validation mse = 0.504564
+Model 1 Validation rmse = 0.710327
+Model 1 Validation r2 = 0.766708
+Model 1 Validation ci = 0.848117
+Epoch 108
+Model 1 Validation mse = 0.501018
+Model 1 Validation rmse = 0.707826
+Model 1 Validation r2 = 0.768347
+Model 1 Validation ci = 0.848448
+Epoch 109
+Model 1 Validation mse = 0.503665
+Model 1 Validation rmse = 0.709693
+Model 1 Validation r2 = 0.767124
+Model 1 Validation ci = 0.848374
+Epoch 110
+Model 1 Validation mse = 0.500806
+Model 1 Validation rmse = 0.707677
+Model 1 Validation r2 = 0.768446
+Model 1 Validation ci = 0.849118
+Epoch 111
+Model 1 Validation mse = 0.507948
+Model 1 Validation rmse = 0.712705
+Model 1 Validation r2 = 0.765143
+Model 1 Validation ci = 0.848410
+Epoch 112
+Model 1 Validation mse = 0.501985
+Model 1 Validation rmse = 0.708509
+Model 1 Validation r2 = 0.767900
+Model 1 Validation ci = 0.848979
+Epoch 113
+Model 1 Validation mse = 0.503337
+Model 1 Validation rmse = 0.709462
+Model 1 Validation r2 = 0.767275
+Model 1 Validation ci = 0.848699
+Epoch 114
+Model 1 Validation mse = 0.499312
+Model 1 Validation rmse = 0.706620
+Model 1 Validation r2 = 0.769136
+Model 1 Validation ci = 0.849143
+Epoch 115
+Model 1 Validation mse = 0.501244
+Model 1 Validation rmse = 0.707986
+Model 1 Validation r2 = 0.768243
+Model 1 Validation ci = 0.849090
+Epoch 116
+Model 1 Validation mse = 0.499744
+Model 1 Validation rmse = 0.706926
+Model 1 Validation r2 = 0.768937
+Model 1 Validation ci = 0.849072
+Epoch 117
+Model 1 Validation mse = 0.501529
+Model 1 Validation rmse = 0.708187
+Model 1 Validation r2 = 0.768111
+Model 1 Validation ci = 0.848647
+Epoch 118
+Model 1 Validation mse = 0.501149
+Model 1 Validation rmse = 0.707918
+Model 1 Validation r2 = 0.768287
+Model 1 Validation ci = 0.848713
+Epoch 119
+Model 1 Validation mse = 0.502372
+Model 1 Validation rmse = 0.708782
+Model 1 Validation r2 = 0.767721
+Model 1 Validation ci = 0.848987
+Model 1 best validation mse = 0.498681 on epoch 95
+Loading pretrained parameter "smiles_transformer.pe.pe".
+Loading pretrained parameter "smiles_transformer.drug_embedding.weight".
+Loading pretrained parameter "smiles_transformer.lin.weight".
+Loading pretrained parameter "smiles_transformer.lin.bias".
+Loading pretrained parameter "smiles_transformer.LN.weight".
+Loading pretrained parameter "smiles_transformer.LN.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.self_attn.in_proj_weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.self_attn.in_proj_bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.self_attn.out_proj.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.self_attn.out_proj.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.linear1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.linear1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.linear2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.linear2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.norm1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.norm1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.norm2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.norm2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.self_attn.in_proj_weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.self_attn.in_proj_bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.self_attn.out_proj.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.self_attn.out_proj.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.linear1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.linear1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.linear2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.linear2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.norm1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.norm1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.norm2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.norm2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.self_attn.in_proj_weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.self_attn.in_proj_bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.self_attn.out_proj.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.self_attn.out_proj.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.linear1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.linear1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.linear2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.linear2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.norm1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.norm1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.norm2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.norm2.bias".
+Loading pretrained parameter "prot_transformer.pe.pe".
+Loading pretrained parameter "prot_transformer.prot_embedding.weight".
+Loading pretrained parameter "prot_transformer.lin.weight".
+Loading pretrained parameter "prot_transformer.lin.bias".
+Loading pretrained parameter "prot_transformer.LN.weight".
+Loading pretrained parameter "prot_transformer.LN.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.self_attn.in_proj_weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.self_attn.in_proj_bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.self_attn.out_proj.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.self_attn.out_proj.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.linear1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.linear1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.linear2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.linear2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.norm1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.norm1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.norm2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.norm2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.self_attn.in_proj_weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.self_attn.in_proj_bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.self_attn.out_proj.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.self_attn.out_proj.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.linear1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.linear1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.linear2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.linear2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.norm1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.norm1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.norm2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.norm2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.self_attn.in_proj_weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.self_attn.in_proj_bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.self_attn.out_proj.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.self_attn.out_proj.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.linear1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.linear1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.linear2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.linear2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.norm1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.norm1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.norm2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.norm2.bias".
+Loading pretrained parameter "hidden_norm.weight".
+Loading pretrained parameter "hidden_norm.bias".
+Loading pretrained parameter "fc_mg.weight".
+Loading pretrained parameter "fc_mg.bias".
+Loading pretrained parameter "encoder.encoder.0.cached_zero_vector".
+Loading pretrained parameter "encoder.encoder.0.W_i.weight".
+Loading pretrained parameter "encoder.encoder.0.W_h.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.bias".
+Loading pretrained parameter "sps_embedding.weight".
+Loading pretrained parameter "conv_in.weight".
+Loading pretrained parameter "conv_in.bias".
+Loading pretrained parameter "convs.0.weight".
+Loading pretrained parameter "convs.0.bias".
+Loading pretrained parameter "convs.1.weight".
+Loading pretrained parameter "convs.1.bias".
+Loading pretrained parameter "convs.2.weight".
+Loading pretrained parameter "convs.2.bias".
+Loading pretrained parameter "cnn_fc.weight".
+Loading pretrained parameter "cnn_fc.bias".
+Loading pretrained parameter "norm.weight".
+Loading pretrained parameter "norm.bias".
+Loading pretrained parameter "Final_FC.0.weight".
+Loading pretrained parameter "Final_FC.0.bias".
+Loading pretrained parameter "Final_FC.1.weight".
+Loading pretrained parameter "Final_FC.1.bias".
+Loading pretrained parameter "Final_FC.2.weight".
+Loading pretrained parameter "Final_FC.2.bias".
+Loading pretrained parameter "Final_FC.3.weight".
+Loading pretrained parameter "Final_FC.3.bias".
+Moving model to cuda
+Model 1 test mse = 0.512472
+Model 1 test rmse = 0.715872
+Model 1 test r2 = 0.765362
+Model 1 test ci = 0.847170
+Building model 2
+InteractionModel(
+  (smiles_transformer): Drug_Encoder(
+    (pe): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (drug_embedding): Embedding(2588, 64)
+    (lin): Linear(in_features=64, out_features=300, bias=True)
+    (LN): LayerNorm((300,), eps=1e-05, elementwise_affine=True)
+    (dropout): Dropout(p=0.1, inplace=False)
+    (transformer_encoderlayer): TransformerEncoderLayer(
+      (self_attn): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+      )
+      (linear1): Linear(in_features=64, out_features=512, bias=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+      (linear2): Linear(in_features=512, out_features=64, bias=True)
+      (norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (dropout1): Dropout(p=0.1, inplace=False)
+      (dropout2): Dropout(p=0.1, inplace=False)
+    )
+    (transformer_encoder): TransformerEncoder(
+      (layers): ModuleList(
+        (0-1): 2 x TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=512, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+  )
+  (prot_transformer): Protein_Encoder(
+    (pe): PositionalEncoding(
+      (dropout): Dropout(p=0.1, inplace=False)
+    )
+    (prot_embedding): Embedding(4116, 64)
+    (lin): Linear(in_features=64, out_features=300, bias=True)
+    (LN): LayerNorm((300,), eps=1e-05, elementwise_affine=True)
+    (dropout): Dropout(p=0.1, inplace=False)
+    (transformer_encoderlayer): TransformerEncoderLayer(
+      (self_attn): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+      )
+      (linear1): Linear(in_features=64, out_features=512, bias=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+      (linear2): Linear(in_features=512, out_features=64, bias=True)
+      (norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+      (dropout1): Dropout(p=0.1, inplace=False)
+      (dropout2): Dropout(p=0.1, inplace=False)
+    )
+    (transformer_encoder): TransformerEncoder(
+      (layers): ModuleList(
+        (0-1): 2 x TransformerEncoderLayer(
+          (self_attn): MultiheadAttention(
+            (out_proj): NonDynamicallyQuantizableLinear(in_features=64, out_features=64, bias=True)
+          )
+          (linear1): Linear(in_features=64, out_features=512, bias=True)
+          (dropout): Dropout(p=0.1, inplace=False)
+          (linear2): Linear(in_features=512, out_features=64, bias=True)
+          (norm1): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (norm2): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+          (dropout1): Dropout(p=0.1, inplace=False)
+          (dropout2): Dropout(p=0.1, inplace=False)
+        )
+      )
+    )
+  )
+  (relu): ReLU()
+  (hidden_norm): LayerNorm((300,), eps=1e-05, elementwise_affine=True)
+  (do): Dropout(p=0.1, inplace=False)
+  (fc_mg): Linear(in_features=2048, out_features=300, bias=True)
+  (encoder): MPN(
+    (encoder): ModuleList(
+      (0): MPNEncoder(
+        (dropout_layer): Dropout(p=0.1, inplace=False)
+        (act_func): ReLU()
+        (W_i): Linear(in_features=147, out_features=300, bias=False)
+        (W_h): Linear(in_features=300, out_features=300, bias=False)
+        (W_o): Linear(in_features=433, out_features=300, bias=True)
+      )
+    )
+  )
+  (sps_embedding): Embedding(74, 128)
+  (conv_in): Conv1d(70, 64, kernel_size=(1,), stride=(1,))
+  (convs): ModuleList(
+    (0-2): 3 x Conv1d(128, 256, kernel_size=(7,), stride=(1,), padding=(3,))
+  )
+  (cnn_fc): Linear(in_features=8192, out_features=300, bias=True)
+  (norm): LayerNorm((64,), eps=1e-05, elementwise_affine=True)
+  (Final_FC): ModuleList(
+    (0): Linear(in_features=600, out_features=128, bias=True)
+    (1): Linear(in_features=128, out_features=64, bias=True)
+    (2): Linear(in_features=64, out_features=32, bias=True)
+    (3): Linear(in_features=32, out_features=1, bias=True)
+  )
+)
+Number of parameters = 5,095,441
+Moving model to cuda
+Epoch 0
+Model 2 Validation mse = 1.570867
+Model 2 Validation rmse = 1.253342
+Model 2 Validation r2 = 0.273688
+Model 2 Validation ci = 0.746049
+Epoch 1
+Model 2 Validation mse = 1.525919
+Model 2 Validation rmse = 1.235281
+Model 2 Validation r2 = 0.294471
+Model 2 Validation ci = 0.774465
+Epoch 2
+Model 2 Validation mse = 1.313976
+Model 2 Validation rmse = 1.146288
+Model 2 Validation r2 = 0.392465
+Model 2 Validation ci = 0.791267
+Epoch 3
+Model 2 Validation mse = 1.103836
+Model 2 Validation rmse = 1.050636
+Model 2 Validation r2 = 0.489627
+Model 2 Validation ci = 0.801776
+Epoch 4
+Model 2 Validation mse = 1.209969
+Model 2 Validation rmse = 1.099986
+Model 2 Validation r2 = 0.440554
+Model 2 Validation ci = 0.807712
+Epoch 5
+Model 2 Validation mse = 0.942853
+Model 2 Validation rmse = 0.971006
+Model 2 Validation r2 = 0.564059
+Model 2 Validation ci = 0.813667
+Epoch 6
+Model 2 Validation mse = 0.935796
+Model 2 Validation rmse = 0.967365
+Model 2 Validation r2 = 0.567322
+Model 2 Validation ci = 0.817170
+Epoch 7
+Model 2 Validation mse = 0.912462
+Model 2 Validation rmse = 0.955229
+Model 2 Validation r2 = 0.578111
+Model 2 Validation ci = 0.820671
+Epoch 8
+Model 2 Validation mse = 0.881419
+Model 2 Validation rmse = 0.938839
+Model 2 Validation r2 = 0.592464
+Model 2 Validation ci = 0.824012
+Epoch 9
+Model 2 Validation mse = 0.873441
+Model 2 Validation rmse = 0.934581
+Model 2 Validation r2 = 0.596153
+Model 2 Validation ci = 0.825559
+Epoch 10
+Model 2 Validation mse = 0.758048
+Model 2 Validation rmse = 0.870660
+Model 2 Validation r2 = 0.649506
+Model 2 Validation ci = 0.827991
+Epoch 11
+Model 2 Validation mse = 0.737109
+Model 2 Validation rmse = 0.858550
+Model 2 Validation r2 = 0.659188
+Model 2 Validation ci = 0.828844
+Epoch 12
+Model 2 Validation mse = 0.725584
+Model 2 Validation rmse = 0.851812
+Model 2 Validation r2 = 0.664517
+Model 2 Validation ci = 0.831343
+Epoch 13
+Model 2 Validation mse = 0.726404
+Model 2 Validation rmse = 0.852293
+Model 2 Validation r2 = 0.664137
+Model 2 Validation ci = 0.832572
+Epoch 14
+Model 2 Validation mse = 0.661549
+Model 2 Validation rmse = 0.813357
+Model 2 Validation r2 = 0.694124
+Model 2 Validation ci = 0.832814
+Epoch 15
+Model 2 Validation mse = 0.717504
+Model 2 Validation rmse = 0.847056
+Model 2 Validation r2 = 0.668252
+Model 2 Validation ci = 0.833904
+Epoch 16
+Model 2 Validation mse = 0.702505
+Model 2 Validation rmse = 0.838156
+Model 2 Validation r2 = 0.675187
+Model 2 Validation ci = 0.834939
+Epoch 17
+Model 2 Validation mse = 0.650944
+Model 2 Validation rmse = 0.806811
+Model 2 Validation r2 = 0.699027
+Model 2 Validation ci = 0.835895
+Epoch 18
+Model 2 Validation mse = 0.637326
+Model 2 Validation rmse = 0.798327
+Model 2 Validation r2 = 0.705324
+Model 2 Validation ci = 0.837398
+Epoch 19
+Model 2 Validation mse = 0.613647
+Model 2 Validation rmse = 0.783356
+Model 2 Validation r2 = 0.716272
+Model 2 Validation ci = 0.837299
+Epoch 20
+Model 2 Validation mse = 0.590629
+Model 2 Validation rmse = 0.768524
+Model 2 Validation r2 = 0.726915
+Model 2 Validation ci = 0.837457
+Epoch 21
+Model 2 Validation mse = 0.610328
+Model 2 Validation rmse = 0.781235
+Model 2 Validation r2 = 0.717807
+Model 2 Validation ci = 0.838455
+Epoch 22
+Model 2 Validation mse = 0.588721
+Model 2 Validation rmse = 0.767281
+Model 2 Validation r2 = 0.727797
+Model 2 Validation ci = 0.839074
+Epoch 23
+Model 2 Validation mse = 0.567084
+Model 2 Validation rmse = 0.753049
+Model 2 Validation r2 = 0.737801
+Model 2 Validation ci = 0.839562
+Epoch 24
+Model 2 Validation mse = 0.582272
+Model 2 Validation rmse = 0.763068
+Model 2 Validation r2 = 0.730779
+Model 2 Validation ci = 0.840297
+Epoch 25
+Model 2 Validation mse = 0.573573
+Model 2 Validation rmse = 0.757346
+Model 2 Validation r2 = 0.734801
+Model 2 Validation ci = 0.840595
+Epoch 26
+Model 2 Validation mse = 0.561305
+Model 2 Validation rmse = 0.749203
+Model 2 Validation r2 = 0.740473
+Model 2 Validation ci = 0.840881
+Epoch 27
+Model 2 Validation mse = 0.574844
+Model 2 Validation rmse = 0.758185
+Model 2 Validation r2 = 0.734213
+Model 2 Validation ci = 0.841051
+Epoch 28
+Model 2 Validation mse = 0.562458
+Model 2 Validation rmse = 0.749972
+Model 2 Validation r2 = 0.739940
+Model 2 Validation ci = 0.841575
+Epoch 29
+Model 2 Validation mse = 0.558235
+Model 2 Validation rmse = 0.747152
+Model 2 Validation r2 = 0.741892
+Model 2 Validation ci = 0.841799
+Epoch 30
+Model 2 Validation mse = 0.554836
+Model 2 Validation rmse = 0.744873
+Model 2 Validation r2 = 0.743464
+Model 2 Validation ci = 0.842295
+Epoch 31
+Model 2 Validation mse = 0.570252
+Model 2 Validation rmse = 0.755150
+Model 2 Validation r2 = 0.736336
+Model 2 Validation ci = 0.841902
+Epoch 32
+Model 2 Validation mse = 0.569549
+Model 2 Validation rmse = 0.754685
+Model 2 Validation r2 = 0.736661
+Model 2 Validation ci = 0.842545
+Epoch 33
+Model 2 Validation mse = 0.564903
+Model 2 Validation rmse = 0.751600
+Model 2 Validation r2 = 0.738809
+Model 2 Validation ci = 0.842740
+Epoch 34
+Model 2 Validation mse = 0.547753
+Model 2 Validation rmse = 0.740103
+Model 2 Validation r2 = 0.746739
+Model 2 Validation ci = 0.843220
+Epoch 35
+Model 2 Validation mse = 0.551276
+Model 2 Validation rmse = 0.742480
+Model 2 Validation r2 = 0.745110
+Model 2 Validation ci = 0.842924
+Epoch 36
+Model 2 Validation mse = 0.541229
+Model 2 Validation rmse = 0.735683
+Model 2 Validation r2 = 0.749755
+Model 2 Validation ci = 0.843269
+Epoch 37
+Model 2 Validation mse = 0.547158
+Model 2 Validation rmse = 0.739701
+Model 2 Validation r2 = 0.747014
+Model 2 Validation ci = 0.843777
+Epoch 38
+Model 2 Validation mse = 0.543587
+Model 2 Validation rmse = 0.737284
+Model 2 Validation r2 = 0.748665
+Model 2 Validation ci = 0.843735
+Epoch 39
+Model 2 Validation mse = 0.528525
+Model 2 Validation rmse = 0.726997
+Model 2 Validation r2 = 0.755629
+Model 2 Validation ci = 0.843781
+Epoch 40
+Model 2 Validation mse = 0.523966
+Model 2 Validation rmse = 0.723855
+Model 2 Validation r2 = 0.757737
+Model 2 Validation ci = 0.844841
+Epoch 41
+Model 2 Validation mse = 0.531955
+Model 2 Validation rmse = 0.729353
+Model 2 Validation r2 = 0.754043
+Model 2 Validation ci = 0.844480
+Epoch 42
+Model 2 Validation mse = 0.532123
+Model 2 Validation rmse = 0.729468
+Model 2 Validation r2 = 0.753966
+Model 2 Validation ci = 0.844411
+Epoch 43
+Model 2 Validation mse = 0.529006
+Model 2 Validation rmse = 0.727328
+Model 2 Validation r2 = 0.755407
+Model 2 Validation ci = 0.844571
+Epoch 44
+Model 2 Validation mse = 0.519904
+Model 2 Validation rmse = 0.721044
+Model 2 Validation r2 = 0.759615
+Model 2 Validation ci = 0.844987
+Epoch 45
+Model 2 Validation mse = 0.525166
+Model 2 Validation rmse = 0.724684
+Model 2 Validation r2 = 0.757182
+Model 2 Validation ci = 0.845039
+Epoch 46
+Model 2 Validation mse = 0.518421
+Model 2 Validation rmse = 0.720015
+Model 2 Validation r2 = 0.760301
+Model 2 Validation ci = 0.845206
+Epoch 47
+Model 2 Validation mse = 0.526194
+Model 2 Validation rmse = 0.725392
+Model 2 Validation r2 = 0.756707
+Model 2 Validation ci = 0.845149
+Epoch 48
+Model 2 Validation mse = 0.533767
+Model 2 Validation rmse = 0.730594
+Model 2 Validation r2 = 0.753205
+Model 2 Validation ci = 0.845353
+Epoch 49
+Model 2 Validation mse = 0.528179
+Model 2 Validation rmse = 0.726759
+Model 2 Validation r2 = 0.755789
+Model 2 Validation ci = 0.844914
+Epoch 50
+Model 2 Validation mse = 0.516791
+Model 2 Validation rmse = 0.718881
+Model 2 Validation r2 = 0.761055
+Model 2 Validation ci = 0.845169
+Epoch 51
+Model 2 Validation mse = 0.524805
+Model 2 Validation rmse = 0.724434
+Model 2 Validation r2 = 0.757349
+Model 2 Validation ci = 0.845024
+Epoch 52
+Model 2 Validation mse = 0.513122
+Model 2 Validation rmse = 0.716325
+Model 2 Validation r2 = 0.762751
+Model 2 Validation ci = 0.845601
+Epoch 53
+Model 2 Validation mse = 0.517530
+Model 2 Validation rmse = 0.719396
+Model 2 Validation r2 = 0.760713
+Model 2 Validation ci = 0.845614
+Epoch 54
+Model 2 Validation mse = 0.513343
+Model 2 Validation rmse = 0.716480
+Model 2 Validation r2 = 0.762649
+Model 2 Validation ci = 0.846023
+Epoch 55
+Model 2 Validation mse = 0.524130
+Model 2 Validation rmse = 0.723968
+Model 2 Validation r2 = 0.757661
+Model 2 Validation ci = 0.845701
+Epoch 56
+Model 2 Validation mse = 0.517056
+Model 2 Validation rmse = 0.719066
+Model 2 Validation r2 = 0.760932
+Model 2 Validation ci = 0.845883
+Epoch 57
+Model 2 Validation mse = 0.515559
+Model 2 Validation rmse = 0.718024
+Model 2 Validation r2 = 0.761624
+Model 2 Validation ci = 0.846337
+Epoch 58
+Model 2 Validation mse = 0.514717
+Model 2 Validation rmse = 0.717438
+Model 2 Validation r2 = 0.762013
+Model 2 Validation ci = 0.846037
+Epoch 59
+Model 2 Validation mse = 0.509001
+Model 2 Validation rmse = 0.713443
+Model 2 Validation r2 = 0.764657
+Model 2 Validation ci = 0.845994
+Epoch 60
+Model 2 Validation mse = 0.515152
+Model 2 Validation rmse = 0.717741
+Model 2 Validation r2 = 0.761812
+Model 2 Validation ci = 0.846139
+Epoch 61
+Model 2 Validation mse = 0.516687
+Model 2 Validation rmse = 0.718810
+Model 2 Validation r2 = 0.761103
+Model 2 Validation ci = 0.846341
+Epoch 62
+Model 2 Validation mse = 0.516627
+Model 2 Validation rmse = 0.718768
+Model 2 Validation r2 = 0.761130
+Model 2 Validation ci = 0.846638
+Epoch 63
+Model 2 Validation mse = 0.513464
+Model 2 Validation rmse = 0.716564
+Model 2 Validation r2 = 0.762593
+Model 2 Validation ci = 0.846356
+Epoch 64
+Model 2 Validation mse = 0.512908
+Model 2 Validation rmse = 0.716176
+Model 2 Validation r2 = 0.762850
+Model 2 Validation ci = 0.846960
+Epoch 65
+Model 2 Validation mse = 0.512464
+Model 2 Validation rmse = 0.715866
+Model 2 Validation r2 = 0.763055
+Model 2 Validation ci = 0.846908
+Epoch 66
+Model 2 Validation mse = 0.509323
+Model 2 Validation rmse = 0.713669
+Model 2 Validation r2 = 0.764508
+Model 2 Validation ci = 0.846941
+Epoch 67
+Model 2 Validation mse = 0.513050
+Model 2 Validation rmse = 0.716275
+Model 2 Validation r2 = 0.762784
+Model 2 Validation ci = 0.846547
+Epoch 68
+Model 2 Validation mse = 0.511170
+Model 2 Validation rmse = 0.714961
+Model 2 Validation r2 = 0.763654
+Model 2 Validation ci = 0.846749
+Epoch 69
+Model 2 Validation mse = 0.508988
+Model 2 Validation rmse = 0.713434
+Model 2 Validation r2 = 0.764662
+Model 2 Validation ci = 0.846784
+Epoch 70
+Model 2 Validation mse = 0.518110
+Model 2 Validation rmse = 0.719798
+Model 2 Validation r2 = 0.760445
+Model 2 Validation ci = 0.846860
+Epoch 71
+Model 2 Validation mse = 0.513914
+Model 2 Validation rmse = 0.716878
+Model 2 Validation r2 = 0.762385
+Model 2 Validation ci = 0.846986
+Epoch 72
+Model 2 Validation mse = 0.517881
+Model 2 Validation rmse = 0.719640
+Model 2 Validation r2 = 0.760551
+Model 2 Validation ci = 0.847153
+Epoch 73
+Model 2 Validation mse = 0.508530
+Model 2 Validation rmse = 0.713113
+Model 2 Validation r2 = 0.764874
+Model 2 Validation ci = 0.846722
+Epoch 74
+Model 2 Validation mse = 0.512340
+Model 2 Validation rmse = 0.715780
+Model 2 Validation r2 = 0.763112
+Model 2 Validation ci = 0.846546
+Epoch 75
+Model 2 Validation mse = 0.504828
+Model 2 Validation rmse = 0.710513
+Model 2 Validation r2 = 0.766586
+Model 2 Validation ci = 0.847540
+Epoch 76
+Model 2 Validation mse = 0.511465
+Model 2 Validation rmse = 0.715168
+Model 2 Validation r2 = 0.763517
+Model 2 Validation ci = 0.846793
+Epoch 77
+Model 2 Validation mse = 0.506922
+Model 2 Validation rmse = 0.711985
+Model 2 Validation r2 = 0.765618
+Model 2 Validation ci = 0.847324
+Epoch 78
+Model 2 Validation mse = 0.515977
+Model 2 Validation rmse = 0.718315
+Model 2 Validation r2 = 0.761431
+Model 2 Validation ci = 0.846900
+Epoch 79
+Model 2 Validation mse = 0.507986
+Model 2 Validation rmse = 0.712731
+Model 2 Validation r2 = 0.765126
+Model 2 Validation ci = 0.847657
+Epoch 80
+Model 2 Validation mse = 0.511752
+Model 2 Validation rmse = 0.715368
+Model 2 Validation r2 = 0.763385
+Model 2 Validation ci = 0.846954
+Epoch 81
+Model 2 Validation mse = 0.510435
+Model 2 Validation rmse = 0.714447
+Model 2 Validation r2 = 0.763993
+Model 2 Validation ci = 0.847522
+Epoch 82
+Model 2 Validation mse = 0.514708
+Model 2 Validation rmse = 0.717432
+Model 2 Validation r2 = 0.762018
+Model 2 Validation ci = 0.847190
+Epoch 83
+Model 2 Validation mse = 0.515282
+Model 2 Validation rmse = 0.717832
+Model 2 Validation r2 = 0.761752
+Model 2 Validation ci = 0.847365
+Epoch 84
+Model 2 Validation mse = 0.515239
+Model 2 Validation rmse = 0.717802
+Model 2 Validation r2 = 0.761772
+Model 2 Validation ci = 0.847095
+Epoch 85
+Model 2 Validation mse = 0.508911
+Model 2 Validation rmse = 0.713380
+Model 2 Validation r2 = 0.764698
+Model 2 Validation ci = 0.847309
+Epoch 86
+Model 2 Validation mse = 0.509979
+Model 2 Validation rmse = 0.714128
+Model 2 Validation r2 = 0.764204
+Model 2 Validation ci = 0.847389
+Epoch 87
+Model 2 Validation mse = 0.508660
+Model 2 Validation rmse = 0.713204
+Model 2 Validation r2 = 0.764814
+Model 2 Validation ci = 0.847493
+Epoch 88
+Model 2 Validation mse = 0.504691
+Model 2 Validation rmse = 0.710416
+Model 2 Validation r2 = 0.766649
+Model 2 Validation ci = 0.847755
+Epoch 89
+Model 2 Validation mse = 0.507528
+Model 2 Validation rmse = 0.712410
+Model 2 Validation r2 = 0.765338
+Model 2 Validation ci = 0.848121
+Epoch 90
+Model 2 Validation mse = 0.505419
+Model 2 Validation rmse = 0.710928
+Model 2 Validation r2 = 0.766313
+Model 2 Validation ci = 0.847911
+Epoch 91
+Model 2 Validation mse = 0.510833
+Model 2 Validation rmse = 0.714726
+Model 2 Validation r2 = 0.763809
+Model 2 Validation ci = 0.847626
+Epoch 92
+Model 2 Validation mse = 0.507994
+Model 2 Validation rmse = 0.712737
+Model 2 Validation r2 = 0.765122
+Model 2 Validation ci = 0.848019
+Epoch 93
+Model 2 Validation mse = 0.516932
+Model 2 Validation rmse = 0.718980
+Model 2 Validation r2 = 0.760989
+Model 2 Validation ci = 0.847428
+Epoch 94
+Model 2 Validation mse = 0.507316
+Model 2 Validation rmse = 0.712261
+Model 2 Validation r2 = 0.765436
+Model 2 Validation ci = 0.847980
+Epoch 95
+Model 2 Validation mse = 0.504650
+Model 2 Validation rmse = 0.710387
+Model 2 Validation r2 = 0.766668
+Model 2 Validation ci = 0.848019
+Epoch 96
+Model 2 Validation mse = 0.509572
+Model 2 Validation rmse = 0.713843
+Model 2 Validation r2 = 0.764392
+Model 2 Validation ci = 0.847987
+Epoch 97
+Model 2 Validation mse = 0.502177
+Model 2 Validation rmse = 0.708644
+Model 2 Validation r2 = 0.767812
+Model 2 Validation ci = 0.848586
+Epoch 98
+Model 2 Validation mse = 0.503133
+Model 2 Validation rmse = 0.709319
+Model 2 Validation r2 = 0.767370
+Model 2 Validation ci = 0.848421
+Epoch 99
+Model 2 Validation mse = 0.503521
+Model 2 Validation rmse = 0.709592
+Model 2 Validation r2 = 0.767190
+Model 2 Validation ci = 0.848466
+Epoch 100
+Model 2 Validation mse = 0.504956
+Model 2 Validation rmse = 0.710602
+Model 2 Validation r2 = 0.766527
+Model 2 Validation ci = 0.848052
+Epoch 101
+Model 2 Validation mse = 0.502755
+Model 2 Validation rmse = 0.709052
+Model 2 Validation r2 = 0.767544
+Model 2 Validation ci = 0.848414
+Epoch 102
+Model 2 Validation mse = 0.503275
+Model 2 Validation rmse = 0.709419
+Model 2 Validation r2 = 0.767304
+Model 2 Validation ci = 0.848409
+Epoch 103
+Model 2 Validation mse = 0.507705
+Model 2 Validation rmse = 0.712534
+Model 2 Validation r2 = 0.765256
+Model 2 Validation ci = 0.848610
+Epoch 104
+Model 2 Validation mse = 0.504072
+Model 2 Validation rmse = 0.709980
+Model 2 Validation r2 = 0.766936
+Model 2 Validation ci = 0.848424
+Epoch 105
+Model 2 Validation mse = 0.511403
+Model 2 Validation rmse = 0.715125
+Model 2 Validation r2 = 0.763546
+Model 2 Validation ci = 0.848369
+Epoch 106
+Model 2 Validation mse = 0.504857
+Model 2 Validation rmse = 0.710533
+Model 2 Validation r2 = 0.766573
+Model 2 Validation ci = 0.848653
+Epoch 107
+Model 2 Validation mse = 0.502574
+Model 2 Validation rmse = 0.708925
+Model 2 Validation r2 = 0.767628
+Model 2 Validation ci = 0.848804
+Epoch 108
+Model 2 Validation mse = 0.505156
+Model 2 Validation rmse = 0.710743
+Model 2 Validation r2 = 0.766434
+Model 2 Validation ci = 0.848624
+Epoch 109
+Model 2 Validation mse = 0.508266
+Model 2 Validation rmse = 0.712928
+Model 2 Validation r2 = 0.764996
+Model 2 Validation ci = 0.848662
+Epoch 110
+Model 2 Validation mse = 0.509386
+Model 2 Validation rmse = 0.713713
+Model 2 Validation r2 = 0.764479
+Model 2 Validation ci = 0.848445
+Epoch 111
+Model 2 Validation mse = 0.504023
+Model 2 Validation rmse = 0.709946
+Model 2 Validation r2 = 0.766958
+Model 2 Validation ci = 0.848558
+Epoch 112
+Model 2 Validation mse = 0.505750
+Model 2 Validation rmse = 0.711161
+Model 2 Validation r2 = 0.766159
+Model 2 Validation ci = 0.848904
+Epoch 113
+Model 2 Validation mse = 0.514693
+Model 2 Validation rmse = 0.717421
+Model 2 Validation r2 = 0.762025
+Model 2 Validation ci = 0.848799
+Epoch 114
+Model 2 Validation mse = 0.504816
+Model 2 Validation rmse = 0.710504
+Model 2 Validation r2 = 0.766591
+Model 2 Validation ci = 0.848009
+Epoch 115
+Model 2 Validation mse = 0.508763
+Model 2 Validation rmse = 0.713276
+Model 2 Validation r2 = 0.764766
+Model 2 Validation ci = 0.848668
+Epoch 116
+Model 2 Validation mse = 0.513248
+Model 2 Validation rmse = 0.716413
+Model 2 Validation r2 = 0.762693
+Model 2 Validation ci = 0.848578
+Epoch 117
+Model 2 Validation mse = 0.504911
+Model 2 Validation rmse = 0.710571
+Model 2 Validation r2 = 0.766547
+Model 2 Validation ci = 0.848868
+Epoch 118
+Model 2 Validation mse = 0.503178
+Model 2 Validation rmse = 0.709351
+Model 2 Validation r2 = 0.767349
+Model 2 Validation ci = 0.848620
+Epoch 119
+Model 2 Validation mse = 0.499715
+Model 2 Validation rmse = 0.706905
+Model 2 Validation r2 = 0.768950
+Model 2 Validation ci = 0.848677
+Model 2 best validation mse = 0.499715 on epoch 119
+Loading pretrained parameter "smiles_transformer.pe.pe".
+Loading pretrained parameter "smiles_transformer.drug_embedding.weight".
+Loading pretrained parameter "smiles_transformer.lin.weight".
+Loading pretrained parameter "smiles_transformer.lin.bias".
+Loading pretrained parameter "smiles_transformer.LN.weight".
+Loading pretrained parameter "smiles_transformer.LN.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.self_attn.in_proj_weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.self_attn.in_proj_bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.self_attn.out_proj.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.self_attn.out_proj.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.linear1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.linear1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.linear2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.linear2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.norm1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.norm1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.norm2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoderlayer.norm2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.self_attn.in_proj_weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.self_attn.in_proj_bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.self_attn.out_proj.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.self_attn.out_proj.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.linear1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.linear1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.linear2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.linear2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.norm1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.norm1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.norm2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.0.norm2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.self_attn.in_proj_weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.self_attn.in_proj_bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.self_attn.out_proj.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.self_attn.out_proj.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.linear1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.linear1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.linear2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.linear2.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.norm1.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.norm1.bias".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.norm2.weight".
+Loading pretrained parameter "smiles_transformer.transformer_encoder.layers.1.norm2.bias".
+Loading pretrained parameter "prot_transformer.pe.pe".
+Loading pretrained parameter "prot_transformer.prot_embedding.weight".
+Loading pretrained parameter "prot_transformer.lin.weight".
+Loading pretrained parameter "prot_transformer.lin.bias".
+Loading pretrained parameter "prot_transformer.LN.weight".
+Loading pretrained parameter "prot_transformer.LN.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.self_attn.in_proj_weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.self_attn.in_proj_bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.self_attn.out_proj.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.self_attn.out_proj.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.linear1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.linear1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.linear2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.linear2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.norm1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.norm1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.norm2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoderlayer.norm2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.self_attn.in_proj_weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.self_attn.in_proj_bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.self_attn.out_proj.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.self_attn.out_proj.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.linear1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.linear1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.linear2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.linear2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.norm1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.norm1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.norm2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.0.norm2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.self_attn.in_proj_weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.self_attn.in_proj_bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.self_attn.out_proj.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.self_attn.out_proj.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.linear1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.linear1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.linear2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.linear2.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.norm1.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.norm1.bias".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.norm2.weight".
+Loading pretrained parameter "prot_transformer.transformer_encoder.layers.1.norm2.bias".
+Loading pretrained parameter "hidden_norm.weight".
+Loading pretrained parameter "hidden_norm.bias".
+Loading pretrained parameter "fc_mg.weight".
+Loading pretrained parameter "fc_mg.bias".
+Loading pretrained parameter "encoder.encoder.0.cached_zero_vector".
+Loading pretrained parameter "encoder.encoder.0.W_i.weight".
+Loading pretrained parameter "encoder.encoder.0.W_h.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.weight".
+Loading pretrained parameter "encoder.encoder.0.W_o.bias".
+Loading pretrained parameter "sps_embedding.weight".
+Loading pretrained parameter "conv_in.weight".
+Loading pretrained parameter "conv_in.bias".
+Loading pretrained parameter "convs.0.weight".
+Loading pretrained parameter "convs.0.bias".
+Loading pretrained parameter "convs.1.weight".
+Loading pretrained parameter "convs.1.bias".
+Loading pretrained parameter "convs.2.weight".
+Loading pretrained parameter "convs.2.bias".
+Loading pretrained parameter "cnn_fc.weight".
+Loading pretrained parameter "cnn_fc.bias".
+Loading pretrained parameter "norm.weight".
+Loading pretrained parameter "norm.bias".
+Loading pretrained parameter "Final_FC.0.weight".
+Loading pretrained parameter "Final_FC.0.bias".
+Loading pretrained parameter "Final_FC.1.weight".
+Loading pretrained parameter "Final_FC.1.bias".
+Loading pretrained parameter "Final_FC.2.weight".
+Loading pretrained parameter "Final_FC.2.bias".
+Loading pretrained parameter "Final_FC.3.weight".
+Loading pretrained parameter "Final_FC.3.bias".
+Moving model to cuda
+Model 2 test mse = 0.518191
+Model 2 test rmse = 0.719855
+Model 2 test r2 = 0.762744
+Model 2 test ci = 0.847365
+Ensemble test mse = 0.455498
+Ensemble test rmse = 0.674906
+Ensemble test r2 = 0.791448
+Ensemble test ci = 0.859964
+1-fold cross validation
+	Seed 42 ==> test mse = 0.455498
+	Seed 42 ==> test rmse = 0.674906
+	Seed 42 ==> test r2 = 0.791448
+	Seed 42 ==> test ci = 0.859964
+Overall test mse = 0.455498 +/- 0.000000
+Overall test Cindex = 0.859964 +/- 0.000000 
+Overall test rmse = 0.674906 +/- 0.000000
+Overall test Cindex = 0.859964 +/- 0.000000 
+Overall test r2 = 0.791448 +/- 0.000000
+Overall test Cindex = 0.859964 +/- 0.000000 
+Overall test ci = 0.859964 +/- 0.000000
+Overall test Cindex = 0.859964 +/- 0.000000 
+Elapsed time = 3 days, 1:25:23
+Command line
+python train.py --data_path ./toy_dataset/BindingDB_06.csv --metric mse --extra_metrics rmse r2 ci --dataset_type regression --save_dir ./new_bindingDB_2411ver_save --target_columns pka --epochs 120 --ensemble_size 3 --num_folds 1 --batch_size 50 --transformer_d_model 64 --transformer_d_ff 512 --transformer_nlayers 2 --sequence_length 500 --sps_length 70 --smiles_length 50 --sps_cnn --D_MPNN --ECFP --earlystop 50 --seed 42 --tau 0.0 5.0 --alpha 0.5 --beta 5.0
+Args
+{'D_MPNN': True,
+ 'ECFP': True,
+ 'activation': 'ReLU',
+ 'aggregation': 'mean',
+ 'aggregation_norm': 100,
+ 'alpha': 0.5,
+ 'atom_descriptor_scaling': True,
+ 'atom_descriptors': None,
+ 'atom_descriptors_path': None,
+ 'atom_descriptors_size': 0,
+ 'atom_features_size': 0,
+ 'atom_messages': False,
+ 'batch_size': 50,
+ 'beta': 5.0,
+ 'bias': False,
+ 'bond_feature_scaling': True,
+ 'bond_features_path': None,
+ 'bond_features_size': 0,
+ 'cache_cutoff': 10000,
+ 'checkpoint_dir': None,
+ 'checkpoint_frzn': None,
+ 'checkpoint_path': None,
+ 'checkpoint_paths': None,
+ 'class_balance': False,
+ 'config_path': None,
+ 'crossval_index_dir': None,
+ 'crossval_index_file': None,
+ 'crossval_index_sets': None,
+ 'cuda': True,
+ 'data_path': './toy_dataset/BindingDB_06.csv',
+ 'data_weights_path': None,
+ 'dataset_type': 'regression',
+ 'depth': 3,
+ 'device': device(type='cuda'),
+ 'drop_last': True,
+ 'dropout': 0.1,
+ 'earlystop': 50,
+ 'earlystop_metric': 'auc',
+ 'empty_cache': False,
+ 'ensemble_size': 3,
+ 'epochs': 120,
+ 'explicit_h': False,
+ 'extra_metrics': ['rmse', 'r2', 'ci'],
+ 'features_generator': None,
+ 'features_only': False,
+ 'features_path': None,
+ 'features_scaling': True,
+ 'features_size': None,
+ 'ffn_hidden_size': 300,
+ 'ffn_num_layers': 2,
+ 'final_lr': 0.0001,
+ 'folds_file': None,
+ 'freeze_first_only': False,
+ 'frzn_ffn_layers': 0,
+ 'gpu': None,
+ 'grad_clip': None,
+ 'hidden_size': 300,
+ 'ignore_columns': None,
+ 'init_lr': 0.0001,
+ 'kernel_size': 7,
+ 'lamp_lr': 0.0025,
+ 'log_frequency': 10,
+ 'max_data_size': None,
+ 'max_lr': 0.001,
+ 'metric': 'mse',
+ 'metrics': ['mse', 'rmse', 'r2', 'ci'],
+ 'minimize_score': True,
+ 'mpn_shared': False,
+ 'multiclass_num_classes': 3,
+ 'no_atom_descriptor_scaling': False,
+ 'no_bond_features_scaling': False,
+ 'no_cache_mol': False,
+ 'no_cuda': False,
+ 'no_features_scaling': False,
+ 'num_folds': 1,
+ 'num_lrs': 1,
+ 'num_tasks': 1,
+ 'num_workers': 8,
+ 'number_of_molecules': 1,
+ 'overwrite_default_atom_features': False,
+ 'overwrite_default_bond_features': False,
+ 'prot_cnn': False,
+ 'pytorch_seed': 0,
+ 'quiet': False,
+ 'reaction': False,
+ 'reaction_mode': 'reac_diff',
+ 'resume_experiment': False,
+ 'save_dir': './new_bindingDB_2411ver_save',
+ 'save_preds': False,
+ 'save_smiles_splits': False,
+ 'seed': 42,
+ 'separate_test_atom_descriptors_path': None,
+ 'separate_test_bond_features_path': None,
+ 'separate_test_features_path': None,
+ 'separate_test_path': None,
+ 'separate_val_atom_descriptors_path': None,
+ 'separate_val_bond_features_path': None,
+ 'separate_val_features_path': None,
+ 'separate_val_path': None,
+ 'sequence_length': 500,
+ 'show_individual_scores': False,
+ 'smiles_columns': ['smiles'],
+ 'smiles_length': 50,
+ 'split_sizes': (0.7, 0.1, 0.2),
+ 'split_type': 'random',
+ 'sps_1d_out': 64,
+ 'sps_1dcnn_numlayers': 3,
+ 'sps_cnn': True,
+ 'sps_hidden_size': 128,
+ 'sps_length': 70,
+ 'target_columns': ['pka'],
+ 'target_weights': None,
+ 'task_names': ['pka'],
+ 'tau': (0.0, 5.0),
+ 'test': False,
+ 'test_fold_index': None,
+ 'train_data_size': None,
+ 'transformer_d_ff': 512,
+ 'transformer_d_model': 64,
+ 'transformer_nheads': 4,
+ 'transformer_nlayers': 2,
+ 'undirected': False,
+ 'use_input_features': False,
+ 'val_fold_index': None,
+ 'vocab_path': '/data/knu_hr/project/final/vocab/',
+ 'warmup_epochs': 2.0}
+Loading data
