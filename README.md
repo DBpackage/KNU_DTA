@@ -39,7 +39,6 @@ The toy_data directory includes the toy dataset required to run classification o
 
 The full dataset used in the model, due to its size, has been uploaded separately and can be accessed [https://drive.google.com/drive/folders/1oUrTDG0l11baqCLAi2VsnS-vjAooceZS?usp=sharing].
 
-
 You can make your own dataset. Make the csv file with this format.
 
 | smiles  | sequence | pka | sps | label |
@@ -56,10 +55,14 @@ In our dataset, except for Davis, class labels were assigned based on a pKa thre
 
 ## How to prepare SPS from your own dataset
 
-The protein-SPS pair data for human proteins provided by DeepAffinity can be accessed at [https://github.com/Shen-Lab/DeepAffinity/blob/master/data/dataset/uniprot.human.scratch_outputs.w_sps.tab_corrected.zip.]
+The protein-SPS pair data for human proteins provided by DeepAffinity can be accessed at
+
+[https://github.com/Shen-Lab/DeepAffinity/blob/master/data/dataset/uniprot.human.scratch_outputs.w_sps.tab_corrected.zip.]
+
 Additionally, to support training and testing in this study, we provide an extended protein-SPS pair dataset that includes SPS data for proteins not covered in the original dataset. 
 
 This extended dataset is available at [https://github.com/DBpackage/KNU_DTA/blob/main/toy_dataset/Human_SPS_ver5.csv.]
+
 
 
 # 2.**To train the model:**
