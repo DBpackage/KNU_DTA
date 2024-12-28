@@ -3,8 +3,9 @@ A Pytorch Implementation of paper:
 **KNU_DTI/DTA: KNowledge United Drug-Target Interaction predcition** (Not published yet)
 
 Ryong Heo1,3, Dahyeon Lee2, Byung Ju Kim3, Sangmin Seo4, Sanghyun Park4, and Chihyun Park1,2,3,5*
+
 1Department of Medical Bigdata Convergence, Kangwon National University, Chuncheon-si, 24341, Gangwon-do, Republic of Korea, 2Department of Data Science, Kangwon National University, 3UBLBio Corporation, Yeongtong-ro 237, Suwon, 16679, Gyeonggi-do, Republic of Korea, 4Department of Computer Science, Yonsei University, Yonsei-ro 50, Seodaemun-gu, 03722, Seoul, Republic of Korea, 5Department of Computer Science and Engineering, Kangwon National University
-* correspondent author
+*correspondent author
 
 Our reposistory uses:
 https://github.com/chemprop/chemprop as a backbone for compound information extraction.
