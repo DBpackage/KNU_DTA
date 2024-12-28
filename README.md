@@ -1,29 +1,17 @@
-# Perceiver CPI (Version 1.0)
+# KNU_DTI/DTA (Version 1.0)
 A Pytorch Implementation of paper:
+**KNU_DTI/DTA: KNowledge United Drug-Target Interaction predcition** (Not published yet)
 
-**PerceiverCPI: A nested cross-attention network for compound-protein interaction prediction**
+Ryong Heo1,3, Dahyeon Lee2, Byung Ju Kim3, Sangmin Seo4, Sanghyun Park4, and Chihyun Park1,2,3,5*
+1Department of Medical Bigdata Convergence, Kangwon National University, Chuncheon-si, 24341, Gangwon-do, Republic of Korea, 2Department of Data Science, Kangwon National University, 3UBLBio Corporation, Yeongtong-ro 237, Suwon, 16679, Gyeonggi-do, Republic of Korea, 4Department of Computer Science, Yonsei University, Yonsei-ro 50, Seodaemun-gu, 03722, Seoul, Republic of Korea, 5Department of Computer Science and Engineering, Kangwon National University
+* correspondent author
 
-Ngoc-Quang Nguyen , Gwanghoon Jang , Hajung Kim and Jaewoo Kang
+Our reposistory uses:
+https://github.com/chemprop/chemprop as a backbone for compound information extraction.
+https://github.com/dmis-lab/PerceiverCPI as a backbone for model structure.
 
-Our reposistory uses https://github.com/chemprop/chemprop as a backbone for compound information extraction.
-We highly recommend researchers read the paper [D-MPNN](https://pubs.acs.org/doi/abs/10.1021/acs.jcim.9b00237) to better understand how it was used. 
-
-Motivation: Compound-protein interaction (CPI) plays an essential role in drug discovery and is
-performed via expensive molecular docking simulations. Many artificial intelligence-based approaches
-have been proposed in this regard. Recently, two types of models have accomplished promising results in
-exploiting molecular information: graph convolutional neural networks that construct a learned molecular
-representation from a graph structure (atoms and bonds), and neural networks that can be applied to
-compute on descriptors or fingerprints of molecules. However, the superiority of one method over the
-other is yet to be determined. Modern studies have endeavored to aggregate information that is extracted
-from compounds and proteins to form the CPI task. Nonetheless, these approaches have used a simple
-concatenation to combine them, which cannot fully capture the interaction between such information.
-
-Results: We propose the Perceiver CPI network, which adopts a cross-attention mechanism to improve
-the learning ability of the representation of drug and target interactions and exploits the rich information
-obtained from extended-connectivity fingerprints to improve the performance. We evaluated Perceiver CPI
-on three main datasets, Davis, KIBA, and Metz, to compare the performance of our proposed model with
-that of state-of-the-art methods. The proposed method achieved satisfactory performance and exhibited
-significant improvements over previous approaches in all experiments
+We highly recommend researchers read both papers 
+[D-MPNN](https://pubs.acs.org/doi/abs/10.1021/acs.jcim.9b00237) and [PerceiverCPI](https://doi.org/10.1093/bioinformatics/btac731) to better understand how it was used. 
 
 # 0.**Overview of Perceiver CPI**
 
