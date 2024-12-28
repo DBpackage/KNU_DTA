@@ -8,35 +8,58 @@ Ryong Heo1,3, Dahyeon Lee2, Byung Ju Kim3, Sangmin Seo4, Sanghyun Park4, and Chi
 *correspondent author
 
 Our reposistory uses:
+
 https://github.com/chemprop/chemprop as a backbone for compound information extraction.
+
 https://github.com/dmis-lab/PerceiverCPI as a backbone for model structure.
 
 We highly recommend researchers read both papers 
 [D-MPNN](https://pubs.acs.org/doi/abs/10.1021/acs.jcim.9b00237) and [PerceiverCPI](https://doi.org/10.1093/bioinformatics/btac731) to better understand how it was used. 
 
-# 0.**Overview of Perceiver CPI**
+We express our sincere gratitude to the PerceiverCPI team for providing the primary inspiration for our study.
 
-![image](https://user-images.githubusercontent.com/32150689/169429361-cee1031f-fef3-43a6-9220-943fa21de233.png)
 
+# 0.**Overview of KNU_DTI/DTA**
+![image]([KNU_DTI_Figure_1.pdf](https://github.com/user-attachments/files/18266073/KNU_DTI_Figure_1.pdf))
+
+The KNU-DTI model integrates structural and contextual features of proteins and compounds to predict drug-target interactions effectively. It learns structural properties from proteins using Structural Property Sequences (SPS) and from compounds through molecular graphs and ECFP fingerprints. Independent representation vectors are generated via GCNN, D-MPNN, MLP, and transformer-based modules to capture diverse and complementary feature spaces. These vectors are combined through element-wise addition, leveraging orthogonality to integrate independent information without redundancy. The model outperforms existing methods in predictive performance and generalizability across multiple datasets. Its efficient design balances simplicity and scalability, making it practical for real-world drug discovery applications.
 
 Set up the environment:
 
-In our experiment we use, Python 3.9 with PyTorch 1.7.1 + CUDA 10.1.
+In our experiment we use, Python 3.9.12 with PyTorch 2.0.1 + CUDA 11.3 and rdkit==2023.3.2.
+For more detailed environment configurations, please refer to the environments.yml file.
 
 ```bash
-git clone https://github.com/dmis-lab/PerceiverCPI.git
+git clone [https://github.com/DBpackage/KNU_DTA.git]
 conda env create -f environment.yml
 ```
 
-# 1.**Dataset and supplementary experiments**
-![benchmark_data_vis](https://user-images.githubusercontent.com/32150689/167998111-f73c2fee-3ea4-49d4-8f60-8338e0acca00.PNG)
+# 1. **Preparing Data**
+The toy_data directory includes the toy dataset required to run classification or regression tasks using the model.
+
+The full dataset used in the model, due to its size, has been uploaded separately and can be accessed [https://drive.google.com/drive/folders/1oUrTDG0l11baqCLAi2VsnS-vjAooceZS?usp=sharing].
 
 
-![image](https://user-images.githubusercontent.com/32150689/163341766-3115ffa6-0cfe-437e-be75-670de1b4da43.png)
+You can make your own dataset. Make the csv file with this format.
 
-The data should be in the format csv: 'smiles','sequences','label'!
+| smiles  | sequence | pka | sps | label |
+| ------------- | ------------- |------------- |------------- |------------- | 
+| COc1cc(CCCOC(=O)  | MDVLSPGQGNNTTS  | 10.34969248 | CEDL,BNGM,CEKM | 1 |
+| OC(=O)C=C | MSWATRPPF  | 5.568636236 | AEKL,CETS,AEKM | 0 |
 
-The supplementary can be found: [HERE](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/bioinformatics/39/1/10.1093_bioinformatics_btac731/2/btac731_supplementary_data.pdf?Expires=1683822877&Signature=h88F85eD2c911vsPpIRAlYyI-mrwjkgQoTGSPiY6KGCx5O6yrNZbU2UgDzuhBeYVx5RvLb-b1363ZDrebNYzh6pAnZ0Mq-h1li0aiXIVMJzeBD0~xLz9kzaR0DA09s2A7omblzmR690oeaMMvUjRiOOvbFYMmqmodcYZWxj7gGsIbwmamjQq~HERqDWEE5pBUeenht05ItvyKXZ~D2H1CLs2vbRaDAHMQl~vK9NljEan~pFPGJkofTdDPVOn34yszUlF7l231Omzge0T7CIiCC4dijeg1FfMrj-grJ2pqz1YC7Tcl1z22UvMd1pTcSXN1RveLZKMX~dI7GEJSeL2zg__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
+You can make Label column from pka column by setting any threshold value.
+In our dataset, except for Davis, class labels were assigned based on a pKa threshold of 6.0, with values of 6.0 or higher labeled as 1 and those below 6.0 labeled as 0.
+
+* We recommend referring to PubChem for 'canonical SMILES' for compounds.
+* Data with a smiles column length of 5 or less cannot be processed by this model.
+* If the protein sequences are not preprocessed according to the standards provided by DeepAffinity, issues may arise during the tokenization process.
+
+## How to prepare SPS from your own dataset
+
+The protein-SPS pair data for human proteins provided by DeepAffinity can be accessed at [https://github.com/Shen-Lab/DeepAffinity/blob/master/data/dataset/uniprot.human.scratch_outputs.w_sps.tab_corrected.zip.]
+Additionally, to support training and testing in this study, we provide an extended protein-SPS pair dataset that includes SPS data for proteins not covered in the original dataset. 
+
+This extended dataset is available at [https://github.com/DBpackage/KNU_DTA/blob/main/toy_dataset/Human_SPS_ver5.csv.]
 
 
 # 2.**To train the model:**
@@ -61,8 +84,6 @@ Your data should be in the format csv, and the column names are: 'smiles','seque
 
 You can freely tune the hyperparameter for your best performance (but highly recommend using the Bayesian optimization package).
 
-# 5.**Citations**
-If you find the models useful in your research, please consider citing the relevant paper:
 
 ~~~
 @article{10.1093/bioinformatics/btac731,
