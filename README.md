@@ -63,7 +63,7 @@ Additionally, to support training and testing in this study, we provide an exten
 
 This extended dataset is available at [https://github.com/DBpackage/KNU_DTA/blob/main/toy_dataset/Human_SPS_ver5.csv.]
 
-
+If you want to generate new SPS sequences corresponding to the unique proteins in your dataset, please refer to the following page for instructions: [https://github.com/DBpackage/SPS].
 
 # 2.**To train the model:**
 ```bash
