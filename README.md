@@ -111,7 +111,7 @@ python train.py
 --extra_metrics rmse r2 ci 
 --dataset_type regression 
 --target_columns pka 
---save_dir ./save
+--save_dir ./toy_save
 --epochs 120 
 --ensemble_size 3 
 --num_folds 1 
