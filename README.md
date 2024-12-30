@@ -73,6 +73,7 @@ If you want to generate new SPS sequences corresponding to the unique proteins i
 ## 3.**To train the model:**
 
 Please modify line 406 of chemprop/args.py to match your specific path.
+
 #vocab_path = '/data/knu_hr/project/final/vocab/'
 
 ```bash
