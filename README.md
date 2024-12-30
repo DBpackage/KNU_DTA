@@ -21,7 +21,6 @@ We express our sincere gratitude to the PerceiverCPI team for providing the prim
 
 
 ## 1. **Overview of KNU_DTI/DTA**
-![KNU-DTI_figure1](https://github.com/user-attachments/assets/8ff1e8e0-e0d2-4f5f-92ac-7f6ae274606c)
 
 The KNU-DTI model integrates structural and contextual features of proteins and compounds to predict drug-target interactions effectively. It learns structural properties from proteins using Structural Property Sequences (SPS) and from compounds through molecular graphs and ECFP fingerprints. Independent representation vectors are generated via GCNN, D-MPNN, MLP, and transformer-based modules to capture diverse and complementary feature spaces. These vectors are combined through element-wise addition, leveraging orthogonality to integrate independent information without redundancy. The model outperforms existing methods in predictive performance and generalizability across multiple datasets. Its efficient design balances simplicity and scalability, making it practical for real-world drug discovery applications.
 
