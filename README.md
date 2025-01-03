@@ -171,9 +171,10 @@ python predict.py
 ~~~
 
 # citation
+~~~
 @article{RyongHeo2024KNUDTI,
   title={KNU_DTI: KNowledge United Drug-Target Interaction predcition},
   author={Ryong Heo, Dahyeon Lee, Byung Ju Kim, Sangmin Seo, Sanghyun Park, and Chihyun Park},
   journal={submitted to Computers in Biology and Medicine (CIBM)}, 'Not published yet'
 }
-
+~~~
