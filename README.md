@@ -1,6 +1,6 @@
 # KNU_DTI/DTA (Version 1.0)
 A Pytorch Implementation of paper:
-**KNU_DTI/DTA: KNowledge United Drug-Target Interaction predcition** (Not published yet)
+**KNU_DTI/DTA: KNowledge United Drug-Target Interaction predcition** (In the reivision step)
 
 Ryong Heo1,3, Dahyeon Lee2, Byung Ju Kim3, Sangmin Seo4, Sanghyun Park4, and Chihyun Park1,2,3,5*
 
@@ -52,7 +52,7 @@ In our dataset, except for Davis, class labels were assigned based on a pKa thre
 The smiles data is automatically converted into a 2D graph input for D-MPNN during the training and inference processes using RDKit. 
 However, any smiles entries that do not comply with the 2D graph conversion algorithm may be dropped from the input dataset during this process.
 
-* Please ensure that the column order is maintained.
+* Please ensure that the column name and order are maintained.
 * We recommend referring to PubChem for 'canonical SMILEs' for compounds.
 * Data with a smiles column length of 5 or less cannot be processed by this model.
 * If the protein sequences are not preprocessed according to the standards provided by DeepAffinity, issues may arise during the tokenization process.
@@ -102,7 +102,7 @@ python train.py
 --alpha "alpha" 
 --beta "beta"
 ```
-_Usage Example:_
+_Usage Example:_ For Regression
 ~~~
 python train.py 
 --data_path ./toy_dataset/toy_BindingDB_class.csv
@@ -131,6 +131,32 @@ python train.py
 --beta 5.0
 ~~~
 
+_Usage Example:_ For Classification
+~~~
+python train.py 
+--data_path ./toy_dataset/toy_BindingDB_class.csv
+--metric auc
+--extra_metrics prc-auc accuracy
+--dataset_type classification 
+--target_columns label 
+--save_dir ./toy_save
+--epochs 120 
+--ensemble_size 3 
+--num_folds 1 
+--batch_size 50 
+--transformer_d_model 64 
+--transformer_d_ff 512 
+--transformer_nlayers 2 
+--sequence_length 500 
+--sps_length 70 
+--smiles_length 50 
+--sps_cnn 
+--D_MPNN 
+--ECFP 
+--earlystop 50 
+--seed 42 
+~~~
+
 ## 4.**To take the inferrence:**
 ```bash
 python predict.py 
@@ -149,6 +175,7 @@ python predict.py
 --D_MPNN 
 --ECFP 
 ======================================
+
 ```
 _Usage Example:_
 ~~~
@@ -175,6 +202,6 @@ python predict.py
 @article{RyongHeo2024KNUDTI,
   title={KNU_DTI: KNowledge United Drug-Target Interaction predcition},
   author={Ryong Heo, Dahyeon Lee, Byung Ju Kim, Sangmin Seo, Sanghyun Park, and Chihyun Park},
-  journal={submitted to Computers in Biology and Medicine (CIBM)}, 'Not published yet'
+  journal={submitted to Computers in Biology and Medicine (CIBM)}, 'In the reivision step'
 }
 ~~~
